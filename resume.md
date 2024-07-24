@@ -6,7 +6,7 @@ permanlink: Résumé/
 
 # Résumé
 
-
+  
 ### Personal data
 
   Gina Marano
@@ -16,9 +16,6 @@ permanlink: Résumé/
   15 March 1992
   
   Living in Trüllikon, Canton of Zurich, Switzerland
-  
-  
-&nbsp;
 
 ## Education
 
