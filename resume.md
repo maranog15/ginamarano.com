@@ -3,7 +3,7 @@ title: Résumé
 layout: page
 ---
 
-# Research
+# Résumé
 
 
 ### Personal data

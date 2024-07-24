@@ -16,6 +16,3 @@ Additionally, I support and help in developing practice-oriented decision suppor
 {: style="text-align: center; font-size: x-large"}
 
 
-
-![]({{ site.url }}/assets/images/Crater-Lake-RedWoods-228.jpg){: style="display: block;     margin-left: auto;     margin-right: auto;"}
-
