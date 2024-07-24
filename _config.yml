@@ -27,7 +27,7 @@ paginate_path: /blog/page:num/
 timezone: UTC # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # To enable google analytics, supply your token below
-analytics-google: 'UA-112473661-1'
+analytics-google: 'G-5TFWFPPZ43'
 
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
