@@ -21,5 +21,3 @@ in the group of Stand and Landscape Dynamics under the supervision of Prof. Dr. 
 
 
 In my leisure time, I enjoy crafting wooden objects and embarking in long discussions in forest stands with my husband who is the real Forester among us two :-) 
-
-{:style=“text-align: center; font-size: x-large”}
