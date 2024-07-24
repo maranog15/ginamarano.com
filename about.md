@@ -7,7 +7,7 @@ permanlink: about/
 
 ![]({{site.url}}/assets/images/favicon.jpg){: style="float: right; width: 50%; margin: 20px"}
 
-I am a trained Forester and Forest Scientist who discovered dynamic forest models and found them fascinating.
+I am a trained Forester and a Forest Scientist in training who discovered the existence of dynamic forest models, found them fascinating and decided to start crunching some programming languages.
 So far, I had the possibility to explore two sides of the spectrum: a very process-based mechanistic model, the [3D-CMCC-FEM](https://www.forest-modelling-lab.com/the-3d-cmcc-model) and the stand-scale forest gap model [ForClim](https://ites-fe.ethz.ch/openaccess/products/forclim).
 My primary research interest lies in understanding the processes that lead to forest responses, particularly extreme events such as drought-induced tree mortality. 
 Rather than adhering to a single modeling theory, I am interested in the diverse mechanisms that influence these outcomes.
