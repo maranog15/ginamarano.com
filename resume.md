@@ -1,8 +1,10 @@
 ---
 title: Résumé
 layout: page
-permanlink: resume/
 ---
+
+# Research
+
 
 ### Personal data
 
