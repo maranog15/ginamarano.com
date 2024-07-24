@@ -5,11 +5,19 @@ permanlink: about/
 ---
 # About me
 
-![]({{site.url}}/assets/images/Crater-Lake-RedWoods-233.jpg){: style="float: right; width: 50%; margin: 20px"}
+![]({{site.url}}/assets/images/favicon.jpg){: style="float: right; width: 50%; margin: 20px"}
 
-I am interested in forests and their functioning, dynamics, and management. I find working with data and models to be a fun challenge, and I enjoy extracting value from data by examining problems from a small and holistic scale, as well as from different dimensions. This data-driven interest has allowed me to acquire solid statistical and programming skills, which I continue to enjoy using and learning about. I thrive in a multidisciplinary team environment, where I can collaborate and adapt to new challenges, such as working with different people, cultures, methods, perspectives, and ways of doing things.
+I am a trained Forester and Forest Scientist who discovered dynamic forest models found them fascinating.
+So far, I had the possibility to explore two sides of the spectrum: a very process-based mechanistic model, the [3D-CMCC-FEM]https://www.forest-modelling-lab.com/the-3d-cmcc-model) and the stand-scale forest gap model [ForClim](https://ites-fe.ethz.ch/openaccess/products/forclim).
+My primary research interest lies in understanding the processes that lead to forest responses, particularly extreme events such as drought-induced tree mortality. 
+Rather than adhering to a single modeling theory, I am interested in the diverse mechanisms that influence these outcomes.
+I believe that models offer a glimpse into potential future scenarios, helping us understand what forest ecosystems might experience. As tools, they are indeed invaluable, yet we as scientists and practitioners must be careful in using them with caution.
+Another area of interest for me is how silvicultural practices can shape forests to meet various objectives and enhance their functionality. Once my silviculture professor, Dr. Mario Pividori, gave a definition of silviculture that stayed with me ever since "Rather than the craft of chopping trees, Silviculture is the art of allowing the forest to properly grow". 
+I particularly enjoy discussing problems and solutions with forest practitioners because they are the eyes and hands tasked with the great challenge to shape today's forest for the future to come. Despite the great challenge they have however few tools to aid them when it comes to complex and conflicting decisions.
+It is in this context I believe that we as forest scientists can play a role in aiding and providing tools and insights on the potential future scenarios that the forest ecosystems might experience.
 
-I currently work in the [Forest Management Resources group at ETH Zurich (FORM)](https://form.ethz.ch), where I focus on improving forest risk management. I joined FORM in 2024.  In 2020, I joined ETH in the [Forest Ecology group at ETH (FE)](https://fe.ethz.ch/en/). My research at FE focuses on examining the structural uncertainty of forest dynamics models in relation to their ability to accurately represent natural disturbances. Previously, I worked as a postdoctoral researcher at the University of Eastern Finland, where I evaluated optimal forest management practices that consider multiple ecosystem services and alternative management strategies. I also conducted analyses on how to incorporate the risk of natural disturbances into forest management and planning. I hold a PhD in Forest Sciences from the University of Eastern Finland and have had the privilege of working at various institutions worldwide, such as the US Forest Service in the USA, the Swedish University of Agricultural Sciences in Sweden, IUFRO in Austria, and the Polytechnic University of Madrid in Spain.
+Since 2021 I am persuing a PhD in [Forest Ecology at ETH Zurich (FE)](https://fe.ethz.ch/en/) 
+in the group of Stand and Landscape Dynamics under the supervision of Prof. Dr. Harald Bugmann 
 
 
-
+In my leisure time, I enjoy crafting wooden objects under the guidance of my husband who is the real Forester among us two :-)
