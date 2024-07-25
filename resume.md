@@ -1,6 +1,7 @@
 ---
 title: Résumé
 layout: page
+permanlink: resume/
 ---
 
 # Résumé

@@ -1,6 +1,7 @@
 ---
 title: Teaching
 layout: page
+permanlink: teaching/
 ---
 # Lab assistant and teaching experience
 
