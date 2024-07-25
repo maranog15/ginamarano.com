@@ -1,13 +1,15 @@
 ---
 title: Résumé
 layout: page
-permanlink: Résumé/
+permanlink: resume/
 ---
 
 # Résumé
 
+**[LinkedIn](https://www.linkedin.com/in/gina-marano-60a66270/) \| [Download CV]({{ site.url }}/assets/docs/CV_GinaMarano_Summer2024.pdf) \| [Publications]({{site.url}}/research/publications-list/)**
+{: style="text-align: center; font-size: x-large"}
   
-### Personal data
+## Personal data
 
   Gina Marano
   
@@ -74,3 +76,4 @@ permanlink: Résumé/
 &nbsp;
 
 
+![]({{ site.url }}/assets/images/lotsch.jpg){: style="display: block;     margin-left: auto;     margin-right: auto;"}
