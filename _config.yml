@@ -86,7 +86,7 @@ blog: true
 research: true
 teaching: true
 presentations: true
-Résumé: true
+resume: true
 
 # do you want to show the "read time" of the posts?
 read-time: true
