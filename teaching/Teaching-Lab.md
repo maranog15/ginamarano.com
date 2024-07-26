@@ -1,5 +1,5 @@
 ---
-title: My teaching
+title: Teaching-Lab
 layout: page
 permanlink: teaching/
 ---
@@ -19,6 +19,7 @@ This is an ongoing collection of courses in which I have and still am participat
 ## Ökologie und Management von Gebirgswäldern
 
 **Role:** Lab assistant for Marteloskop-ForClim simulations 
+
 **Responsibilities:** Lab assistant: helping research assistants setting up their simulations with the forest gap model ForClim   
 **Teaching institution:** ETH Zurich  [Summer semester course: 2023-ongoing]
 

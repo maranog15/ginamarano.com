@@ -31,7 +31,7 @@ Up to today I had the honor to supervise the following thesis:
 
 
 
-**\|[My teaching]({{site.url}}/teaching/myTeaching/)\|**
+**\|[My teaching]({{site.url}}/teaching/Teaching-Lab/)\|**
 {: style="text-align: center; font-size: x-large"}
 
 
