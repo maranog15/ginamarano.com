@@ -18,4 +18,4 @@ Additionally, I support and help in developing practice-oriented decision suppor
 
 
 
-![]({{ site.url }}/assets/images/lotsch.jpg){: style="display: block;     margin-left: auto;     margin-right: auto;"}
+![]({{ site.url }}/assets/images/lotsch2.jpg){: style="display: block;     margin-left: auto;     margin-right: auto;"}
