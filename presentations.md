@@ -13,7 +13,7 @@ permanlink: presentations/
 
 * **From dynamic forest models to decision support for forest transformation - How can synergies be achieved?.** Session chair. European Conference of Ecological Modeling, Leipzig, September 2023.
 
-* Poster **The potential use of a dynamic forest model as decision support in mountain protection forests of Switzerland** Session: From dynamic forest models to decision support for forest transformation - How can synergies be achieved?, European Conference of Ecological Modeling, Leipzig, September 2023.
+* (Poster) **The potential use of a dynamic forest model as decision support in mountain protection forests of Switzerland** Session: From dynamic forest models to decision support for forest transformation - How can synergies be achieved?, European Conference of Ecological Modeling, Leipzig, September 2023.
 
 * **Predisposing and inciting stress factors leading to beech mortality in Switzerland**. European Conference of Ecological Modeling, Leipzig, September 2023.
 
@@ -26,4 +26,4 @@ permanlink: presentations/
 [[video](https://www.youtube.com/watch?v=ooumC05SNto)]
 
 
-![]({{ site.url }}/assets/images/iufro3.png){: style="display: block;     margin-left: auto;     margin-right: auto;"}
+![]({{ site.url }}/assets/images/iufro3.jpg){: style="display: block;     margin-left: auto;     margin-right: auto;"}
