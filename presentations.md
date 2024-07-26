@@ -24,3 +24,6 @@ permanlink: presentations/
 
 * **"How to integrate dynamic forest models in geoSpatial Decision Support Systems**. A LANDSUPPORT H2020 Project, Round Table on Forestry. 
 [[video](https://www.youtube.com/watch?v=ooumC05SNto)]
+
+
+![]({{ site.url }}/assets/images/iufro3.png){: style="display: block;     margin-left: auto;     margin-right: auto;"}
