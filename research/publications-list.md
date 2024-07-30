@@ -5,12 +5,12 @@ layout: page
 
 # Publications List
 
-**[ORCID](https://orcid.org/0000-0003-2600-984X)  \|  [Research Gate ](https://www.researchgate.net/profile/Gina-Marano)\ |  [Google scholar](https://scholar.google.com/citations?user=OOLvF6kAAAAJ&hl=it)**
-|
+**[ORCID](https://orcid.org/0000-0003-2600-984X)  \ |  [Research Gate ](https://www.researchgate.net/profile/Gina-Marano)\ |  [Google scholar](https://scholar.google.com/citations?user=OOLvF6kAAAAJ&hl=it)\ |**
+
 
 * **Weshalb sind die Buchen in Mittelland-Wäldern gestorben?**.  
   Schweizerische Zeitschrift für Forstwesen. Volume 175, Issue 1. 2024 \|  Journal-article.  
-  Role: Leading-author|  Link: [Journal of Environmental Management ](< https://meridian.allenpress.com/szf/issue/175/1>)
+  Role: Leading-author|  Link: [Schweizerische Zeitschrift für Forstwesen](< https://meridian.allenpress.com/szf/issue/175/1>)
 
 
 
