@@ -13,11 +13,7 @@ permanlink: resume/
 
   Gina Marano
   
-  Born in Naples, Italy
-  
-  15 March 1992
-  
-  Living in Trüllikon, Canton of Zurich, Switzerland
+  Living in Canton of Zurich, Switzerland
   
   Languages: Italian (mothertongue), English (C1), German (B1), Spanish (B1), French (A2), Japanese (A1)
 
