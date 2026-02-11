@@ -17,7 +17,7 @@ Once my silviculture professor, Dr. Mario Pividori, gave a definition of silvicu
 I particularly enjoy discussing problems and solutions with forest practitioners because they are the eyes and hands tasked with the great challenge to shape today's forest for the future to come. Despite such an ambitious (and often dangerous) job, foresters have often very limited tools to aid them when it comes to complex and conflicting decisions, especially climate change and future trajectories of forest dynamics.
 It is in this context, I believe, that we as forest scientists can play a role in aiding and providing tools and insights on the potential future scenarios that the forest ecosystems might experience.
 
-Since 2021 I am persuing a PhD in [Forest Ecology at ETH Zurich (FE)](https://fe.ethz.ch/en/) 
+In August 2025 I obtained the PhD title in [Forest Ecology at ETH Zurich (FE)](https://fe.ethz.ch/en/) 
 in the group of Stand and Landscape Dynamics under the supervision of Prof. Dr. Harald Bugmann 
 
 

@@ -18,20 +18,25 @@ permanlink: resume/
   Languages: Italian (mothertongue), English (C1), German (B2), Spanish (B1), French (A2)
 
 ## Work experience
-- Post Doc position, Resource Analysis group at the Swiss Federal Institute for Forest, Snow and Landscape Research WSL 
- -- Project: "ReForMASSIMO: Verbesserung der Modellierung der Waldentwicklung in der Schweiz für relevante Klimaszenarien mit dem Modell Massimo
- Project supervisors: Dr. Golo Stadelmann, Dr. Esther Thürig.
- Financed by the Federal Office for the Environmen. Scientific officers: Dr. Nele Rogier, Dr. Andreas Schellenberger
-  [Model webpage](https://www.wsl.ch/en/about-wsl/organisation/research-units/forest-resources-and-management/services-and-products/decision-support-systems/)
+- Since September 2025: Post Doc position, Resource Analysis group at the Swiss Federal Institute for Forest, Snow and Landscape Research WSL 
 
+ -- Project: "ReForMASSIMO: Verbesserung der Modellierung der Waldentwicklung in der Schweiz für relevante Klimaszenarien mit dem Modell Massimo
+[Model webpage](https://www.wsl.ch/en/about-wsl/organisation/research-units/forest-resources-and-management/services-and-products/decision-support-systems/)
+
+  --- Project supervisors: Dr. Golo Stadelmann, Dr. Esther Thürig.
+ 
+  --- Financed by the Federal Office for the Environment. Scientific officers: Dr. Nele Rogier, Dr. Andreas Schellenberger
+  
 
 ## Education
 
 - PhD student in Forest Ecology at ETH Zurich, January 2021-August 2025
 
+  
   -- Project: "Analysis of structural uncertainty in soil water balance formulations to     assess effects of drought on temperate forest dynamics: a forest modeling       perspective".
     Founding scheme: Swiss National Science Foundation (SNSF), Division I-III, number       188882, title: “Embracing structural uncertainty in models of forest dynamics”
    [Project webpage](https://fe.ethz.ch/en/research/stand-and-landscape-dynamics/stand-dynamics-and-succession-modelling/FORMULATE-DROUGHT.html)
+  
   -- Outcomes: main developer of the ForClim version 4.1 and 4.2.
 
 - Research Fellowship, 2018-2020
@@ -70,8 +75,6 @@ permanlink: resume/
 ## Forestry-related social activities:
 
 - Wood constructions with my husband: [Our webpage](https://elvetiholz.com/)
-
-- Favourite book during Covid Time [[video](https://www.youtube.com/watch?v=JOHOTW8SvaI)]
 
 
 ## Other Forestry Social activities:
