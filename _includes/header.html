@@ -17,8 +17,33 @@
 
         <h1 class="title">{{ site.name }}</h1>
         <h2 class="description">{{ site.bio }}</h2>
+		{% if page.title == "Home" %}
+<div class="focus-rotator">
+  <span id="focus-text">Modelling drought-driven forest mortality.</span>
+</div>
 
-    </header>
+<script>
+(function(){
+  const el = document.getElementById("focus-text");
+  if (!el) return;
+
+  const focusItems = [
+    "Developing and testing processes in dynamic forest vegetation models.",
+    "Modelling drought-driven forest mortality.",
+    "Linking silviculture to climate resilience.",
+    "Exploring disturbance feedbacks in forest systems."
+  ];
+
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % focusItems.length;
+    el.style.opacity = 0;
+
+    setTimeout(() => {
+      el.textContent = focusItems[i];
+      el.style.opacity = 1;
+    }, 350);
+  }, 3200);
+})();
+</script>
 {% endif %}
-
-{% include nav.html %}
