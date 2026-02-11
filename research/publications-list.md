@@ -8,6 +8,23 @@ layout: page
 **[ORCID](https://orcid.org/0000-0003-2600-984X)  \ |  [Research Gate ](https://www.researchgate.net/profile/Gina-Marano)\ |  [Google scholar](https://scholar.google.com/citations?user=OOLvF6kAAAAJ&hl=it)\ |**
 
 
+* **Simulating the recent drought-induced mortality of European beech (Fagus sylvatica L.) and Norway spruce (Picea abies L.) in German forests**.  
+  Geoscientific Model Development. 2026 \|  Journal-article.  
+  Role: Leading-author|  Link: [GMD](< https://gmd.copernicus.org/articles/19/1121/2026/>)
+
+
+* **Modeling Forest Growth Under Current and Future Climate**.  
+  Current Forestry Reports. 2025 \|  Journal-article, Review.  
+  Role: co Leading-author|  Link: [Curr. For. Rep.](<https://link.springer.com/article/10.1007/s40725-025-00249-5?utm_source=researchgate.net&utm_medium=article/>)
+
+* **Perspectives for forest modeling to improve the representation of drought-related tree mortality**.  
+  Journal of Cultivated Plants. 2025 \|  Journal-article.  
+  Role: co-author|  Link: [JfkP](<https://ojs.openagrar.de/index.php/Kulturpflanzenjournal/article/view/17552/>)
+
+* **Modeling Forest Response to Climate Change**.  
+  forests \|  Book.  
+  Role: co Editor|  Link: [mdpi](< https://www.mdpi.com/books/reprint/9644-modeling-forest-response-to-climate-change>)
+
 * **Weshalb sind die Buchen in Mittelland-Wäldern gestorben?**.  
   Schweizerische Zeitschrift für Forstwesen. Volume 175, Issue 1. 2024 \|  Journal-article.  
   Role: Leading-author|  Link: [Schweizerische Zeitschrift für Forstwesen](< https://meridian.allenpress.com/szf/issue/175/1>)

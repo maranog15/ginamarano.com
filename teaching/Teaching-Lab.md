@@ -5,14 +5,14 @@ permanlink: teaching/
 ---
 # Teaching/Lab assistant
 
-This is an ongoing collection of courses in which I have and still am participating as lab assistant.
+This is a collection of courses in which I helped out as lab assistant during my time at ETH Zurich (2021-2025)
 
 
 ## Quantitative Vegetation Dynamics 
 
 **Role:** Lab assistant   
 **Responsibilities:** Helping students setting up their simulations with the forest gap model ForClim   
-**Teaching institution:** ETH Zurich  [Autumn semester course: 2021-ongoing]
+**Teaching institution:** ETH Zurich  [Autumn semester course: 2021-2024]
 
 
 
@@ -20,5 +20,5 @@ This is an ongoing collection of courses in which I have and still am participat
 
 **Role:** Lab assistant
 **Responsibilities:** Helping research assistants setting up their simulations with the forest gap model ForClim   
-**Teaching institution:** ETH Zurich  [Summer semester course: 2023-ongoing]
+**Teaching institution:** ETH Zurich  [Summer semester course: 2023-2024]
 
