@@ -8,8 +8,9 @@ permanlink: about/
 ![]({{site.url}}/assets/images/favicon.jpg){: style="float: right; width: 50%; margin: 20px"}
 
 I am a trained Forester and a Forest Scientist in training who discovered the existence of dynamic forest models, found them fascinating and decided to start crunching some programming languages.
-So far, I had the possibility to explore two sides of the spectrum: a very process-based mechanistic model, the [3D-CMCC-FEM](https://www.forest-modelling-lab.com/the-3d-cmcc-model) and the stand-scale forest gap model [ForClim](https://ites-fe.ethz.ch/openaccess/products/forclim).
-My primary research interest lies in understanding the processes that lead to forest responses to extreme events, such as droughts. 
+I mainly focus on individual tree and stand scale dynamic forest models. So far (2019-2025), I worked on a process-based mechanistic model, the [3D-CMCC-FEM](https://www.forest-modelling-lab.com/the-3d-cmcc-model) and the process-oriented stand-scale forest gap model [ForClim](https://ites-fe.ethz.ch/openaccess/products/forclim).
+Currently (s.2025), I am working on enhancing the climatic sensitivity of the individual empirically-based forest development model [MASSIMO](https://www.lfi.ch/en/about-the-nfi/modules/development-of-forest-and-wood-resources) developed to simulate the growth, mortality and regeneration of trees under user-defined management scenarios over the National Swiss Forest Inventory data.
+My primary research interest lies in understanding the processes that lead to forest responses to extreme events, such as droughts, but also biotic disturbances (e.g. bark beetle and management activities).
 Rather than adhering to a single modeling theory, I am interested in the diverse mechanisms that influence these outcomes. Models are in this sense powerful allies, but not a dogma, neither the absolute truth.
 I believe that models offer a glimpse into potential future scenarios, helping us understand what forest ecosystems might experience under "what if" scenarios. As tools, they are indeed powerful, yet we as scientists and practitioners must be careful in using them and interpret their outcomes with caution.
 Another area of interest for me is how silvicultural practices can shape forests to meet various objectives and enhance their functionality. 
@@ -20,5 +21,5 @@ It is in this context, I believe, that we as forest scientists can play a role i
 In August 2025 I obtained the PhD title in [Forest Ecology at ETH Zurich (FE)](https://fe.ethz.ch/en/) 
 in the group of Stand and Landscape Dynamics under the supervision of Prof. Dr. Harald Bugmann 
 
-
-In my leisure time, I enjoy crafting wooden objects and embarking in long discussions in forest stands with my husband who is the real Forester among us two :-) 
+I am a mother of a sweet boy and married to a Swiss forester.
+In my leisure time (when I have some..!), I enjoy crafting wooden objects, painting, embarking in discussions about silviculture and making music.
