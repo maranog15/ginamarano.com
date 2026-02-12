@@ -1,6 +1,6 @@
 # main text of home
 name: Gina Marano
-bio: "#Forestry #DroughtImpacts #Silviculture #Research"
+bio: "The perspective and modelling attemps of a young researcher on the impacts of climate extremes on forest ecosystems"
 #ForestEcology #Drought #Modelling #Silviculture 
 
 # twitter summary info
@@ -60,7 +60,7 @@ email: ginamarano.forest@gmail.com
 authors:
     maranog15:
         name: Gina Marano
-        bio: "#Forestry #DroughtImpacts #Silviculture #Research"
+        bio: "The perspective and modelling attemps of a young researcher on the impacts of climate extremes on forest ecosystems and the role of silviculture"
         #ForestEcology #Drought #Modelling #Silviculture 
         external-image: false
         picture: assets/images/favcon.jpg
