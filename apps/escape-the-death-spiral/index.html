@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Keep a beech or spruce alive through the real droughts of 2015, 2018–2020 and 2022. A 2-minute phone game about Manion's tree-death spiral by forest ecologist Gina Marano.">
+<meta name="theme-color" content="#7DB7E3">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Escape the Death Spiral">
+<meta property="og:description" content="Can you keep your tree alive through the droughts of 2018–2022? A 2-minute game about how drought kills trees.">
+<meta property="og:url" content="https://ginamarano.com/apps/escape-the-death-spiral/">
+<meta property="og:image" content="https://ginamarano.com/apps/escape-the-death-spiral/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="canonical" href="https://ginamarano.com/apps/escape-the-death-spiral/">
+<title>Escape the Death Spiral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one portrait game screen — canvas scene (sky / tree / soil bucket) with a slim HUD on top and centred panels for start and end. Single daylight look, same palette as the NPS48 poster. */
+:root {
+  --ink: #14231E;
+  --muted: #5C6E66;
+  --paper: #F6F8F4;
+  --leaf: #3F9A55;
+  --amber: #E8A21C;
+  --flame: #E2552E;
+  --bark: #8A4B2C;
+  --water: #2B83C6;
+  --sky: #7DB7E3;
+  --display: "Barlow Condensed", "Bahnschrift", "Arial Narrow", sans-serif;
+  --body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body { margin: 0; background: #CFE4F3; color: var(--ink); font-family: var(--body); overflow: hidden;
+  touch-action: manipulation; overscroll-behavior: none; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+#app { position: relative; height: 100%; width: 100%; max-width: 560px; margin: 0 auto; overflow: hidden; background: var(--sky); }
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* HUD */
+#hud { position: absolute; left: 0; right: 0; top: 0; padding: 10px 14px 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; align-items: center; pointer-events: none; }
+#hud[hidden] { display: none !important; }
+.year { font-family: var(--display); font-weight: 800; font-size: 44px; line-height: .9; color: #fff; text-shadow: 0 2px 0 rgba(20,35,30,.35); font-variant-numeric: tabular-nums; }
+.year small { display: block; font-size: 15px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .95; }
+.meters { display: grid; gap: 5px; min-width: 0; }
+.meter { display: grid; grid-template-columns: 74px 1fr; align-items: center; gap: 8px; font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 0 rgba(20,35,30,.4); }
+.bar { position: relative; height: 12px; border-radius: 99px; background: rgba(255,255,255,.35); overflow: hidden; box-shadow: inset 0 0 0 2px rgba(20,35,30,.25); }
+.bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 99px; background: var(--leaf); transition: width .15s linear, background .3s; }
+.bar b { position: absolute; top: 0; bottom: 0; width: 3px; background: rgba(20,35,30,.55); }
+.pips { display: flex; gap: 4px; }
+.pips span { width: 14px; height: 10px; border-radius: 3px; background: rgba(255,255,255,.35); box-shadow: inset 0 0 0 2px rgba(20,35,30,.2); }
+.pips span.on { background: var(--amber); }
+.pips span.hot { background: var(--flame); }
+#counts { grid-column: 1 / -1; font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 0 rgba(20,35,30,.4); display: flex; gap: 14px; }
+
+#banner { position: absolute; left: 16px; right: 16px; top: 112px; text-align: center; pointer-events: none; font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1.05; color: #fff; text-shadow: 0 2px 0 rgba(20,35,30,.45); opacity: 0; transform: translateY(-6px); transition: opacity .35s, transform .35s; text-wrap: balance; }
+#banner.show { opacity: 1; transform: none; }
+#banner.drought { color: #FFE6A8; }
+#toast { position: absolute; left: 16px; right: 16px; bottom: 44%; text-align: center; pointer-events: none; font-family: var(--display); font-weight: 800; font-size: 30px; letter-spacing: .02em; opacity: 0; transition: opacity .25s, transform .25s; transform: scale(.9); }
+#toast.show { opacity: 1; transform: none; }
+#mute { position: absolute; right: 12px; bottom: 12px; pointer-events: auto; }
+
+/* Panels */
+.panel { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding-block: 18px; padding-inline: 16px; background: rgba(20,35,30,.28); backdrop-filter: blur(2px); }
+.card { width: 100%; max-width: 440px; background: var(--paper); border-radius: 22px; padding: 18px 18px 20px; box-shadow: 0 18px 40px rgba(20,35,30,.28); display: grid; gap: 12px; margin-block: auto; }
+.mascot { width: 62%; max-width: 240px; justify-self: center; margin-top: -4px; }
+h1 { font-family: var(--display); font-weight: 800; font-size: 44px; line-height: .92; margin: 0; text-align: center; letter-spacing: .01em; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--flame); }
+.lede { margin: 0; text-align: center; font-size: 16px; line-height: 1.35; color: var(--muted); text-wrap: balance; }
+.how { display: grid; gap: 8px; margin: 2px 0 0; padding: 0; list-style: none; }
+.how li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; font-size: 15px; line-height: 1.3; }
+.how li svg { width: 34px; height: 34px; }
+.how b { font-weight: 700; }
+.choose { display: grid; gap: 6px; }
+.choose > span { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.seg button { font: inherit; font-family: var(--display); font-weight: 700; font-size: 18px; line-height: 1.05; padding: 10px 8px; border-radius: 14px; border: 2px solid #D5DFD7; background: #fff; color: var(--ink); cursor: pointer; }
+.seg button small { display: block; font-family: var(--body); font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 3px; }
+.seg button[aria-pressed="true"] { border-color: var(--ink); background: #EAF3EC; box-shadow: inset 0 0 0 1px var(--ink); }
+.seg button:focus-visible, .go:focus-visible, .ghost:focus-visible { outline: 3px solid var(--water); outline-offset: 2px; }
+.go { font: inherit; font-family: var(--display); font-weight: 800; font-size: 24px; letter-spacing: .04em; text-transform: uppercase; border: 0; border-radius: 16px; padding: 14px; background: var(--flame); color: #fff; cursor: pointer; box-shadow: 0 5px 0 #A93A1D; }
+.go:active { transform: translateY(3px); box-shadow: 0 2px 0 #A93A1D; }
+.ghost { font: inherit; font-family: var(--display); font-weight: 700; font-size: 18px; border: 2px solid var(--ink); background: transparent; color: var(--ink); border-radius: 14px; padding: 10px; cursor: pointer; }
+.fine { margin: 0; font-size: 12px; line-height: 1.4; color: var(--muted); text-align: center; }
+.fine a { color: var(--water); }
+.credit { margin: -6px 0 0; font-size: 10px; letter-spacing: .02em; color: #93A29B; text-align: center; }
+.best { margin: 0; text-align: center; font-family: var(--display); font-weight: 700; font-size: 16px; letter-spacing: .04em; color: var(--bark); }
+
+/* Game over */
+.verdict { text-align: center; display: grid; gap: 2px; }
+.verdict .k { font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.verdict .big { font-family: var(--display); font-weight: 800; font-size: 76px; line-height: .9; color: var(--ink); font-variant-numeric: tabular-nums; }
+.verdict .sub { font-size: 16px; color: var(--muted); }
+.spiral { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.spiral li { display: grid; grid-template-columns: 38px 1fr; gap: 10px; align-items: center; font-size: 15px; line-height: 1.3; }
+.spiral .L { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-family: var(--display); font-weight: 800; font-size: 22px; }
+.moral { margin: 0; font-size: 15px; line-height: 1.4; text-align: center; background: #FFF4DD; border-radius: 14px; padding: 10px 12px; }
+.showme { margin: 0; text-align: center; font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: .02em; color: var(--flame); text-wrap: balance; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-height: 640px) { .mascot { width: 44%; } h1 { font-size: 36px; } .verdict .big { font-size: 60px; } }
+@media (prefers-reduced-motion: reduce) { #banner, #toast, .bar i { transition: none; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <canvas id="cv" aria-label="Game scene: a tree, clouds and a soil water bucket"></canvas>
+
+  <div id="hud" hidden>
+    <div class="year"><span id="yr">2000</span><small id="mo">April</small></div>
+    <div class="meters">
+      <div class="meter">Vigour<div class="bar"><i id="vig"></i><b id="vmax"></b></div></div>
+      <div class="meter">Memory<div class="pips" id="pips"></div></div>
+    </div>
+    <div id="counts"><span>Beetles squashed <span id="sq">0</span></span><span>Got in <span id="cin">0</span></span></div>
+  </div>
+  <div id="banner"></div>
+  <div id="toast"></div>
+
+  <section class="panel" id="intro">
+    <div class="card">
+      <img class="mascot" src="mascot.png" width="480" height="480" alt="Cartoon of a sweating beech tree under a smug sun wearing sunglasses, with a bark beetle holding a fork">
+      <h1>Escape the <em>death spiral</em></h1>
+      <p class="lede">Keep your tree alive through the real droughts of 2015, 2018–2020 and 2022, and the hotter years that follow. How long can you hold out?</p>
+      <ul class="how">
+        <li><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#2B83C6"/><path d="M11 21a6 6 0 0 1 6-6 8 8 0 0 1 15 3 4.5 4.5 0 0 1-1 9H13a5 5 0 0 1-2-6z" fill="#fff"/><path d="M15 30l-2 4M21 30l-2 4M27 30l-2 4" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg><span><b>Tap clouds</b> to make it rain and refill the soil bucket.</span></li>
+        <li><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#8A4B2C"/><ellipse cx="20" cy="23" rx="6" ry="8.5" fill="#fff"/><circle cx="20" cy="12.5" r="4" fill="#fff"/><path d="M14 19l-5-3M14 24h-6M14 28l-5 3M26 19l5-3M26 24h6M26 28l5 3" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg><span><b>Squash beetles</b> before they reach the crown.</span></li>
+        <li><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#E8A21C"/><path d="M20 20m-2 0a2 2 0 1 1 4 0a5 5 0 1 1-9 1a8 8 0 1 1 14-6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg><span><b>Dry years build drought memory.</b> The next drought hits harder.</span></li>
+      </ul>
+      <div class="choose">
+        <span>Your tree</span>
+        <div class="seg" role="group" aria-label="Tree species">
+          <button type="button" id="sp-beech" aria-pressed="true">European beech<small>Fagus sylvatica</small></button>
+          <button type="button" id="sp-spruce" aria-pressed="false">Norway spruce<small>loved by bark beetles</small></button>
+        </div>
+      </div>
+      <div class="choose">
+        <span>Your soil</span>
+        <div class="seg" role="group" aria-label="Soil water capacity">
+          <button type="button" id="so-deep" aria-pressed="true">Deep soil<small>holds 140 mm of water</small></button>
+          <button type="button" id="so-shallow" aria-pressed="false">Shallow soil<small>holds 90 mm · hard mode</small></button>
+        </div>
+      </div>
+      <button type="button" class="go" id="start">Plant my tree</button>
+      <p class="best" id="best1" hidden></p>
+      <p class="fine">From the poster <i>Unravelling the death spiral</i> · G. Marano &amp; H. Bugmann · WSL &amp; ETH Zurich · 48th New Phytologist Symposium, Leysin · <a href="https://ginamarano.com/web-applications/">ginamarano.com</a></p>
+      <p class="credit">Created with the help of Claude Code Pro</p>
+    </div>
+  </section>
+
+  <section class="panel" id="over" hidden>
+    <div class="card">
+      <div class="verdict">
+        <span class="k" id="ov-k">Your beech died in</span>
+        <span class="big" id="ov-year">2021</span>
+        <span class="sub" id="ov-sub">summer · lived 21 years</span>
+      </div>
+      <ul class="spiral">
+        <li><span class="L" style="background:var(--amber)">P</span><span id="ov-p"></span></li>
+        <li><span class="L" style="background:var(--flame)">I</span><span id="ov-i"></span></li>
+        <li><span class="L" style="background:var(--bark)">C</span><span id="ov-c"></span></li>
+      </ul>
+      <p class="moral">That is Manion’s decline spiral: <b>predisposing</b> dry years, an <b>inciting</b> drought, <b>contributing</b> pests. ForClim uses the same three steps to reproduce the 2018–2020 die‑offs in Swiss and German forests, without calibration.</p>
+      <p class="showme" id="showme">Show this screen at the poster. The longest‑lived tree of the day wins.</p>
+      <p class="best" id="best2"></p>
+      <div class="row2">
+        <button type="button" class="go" id="again">Play again</button>
+        <button type="button" class="ghost" id="change">Change tree</button>
+      </div>
+      <p class="fine">Read the science: <a href="https://doi.org/10.1002/ecs2.70771" target="_blank" rel="noopener">Ecosphere 2026</a> · <a href="https://doi.org/10.5194/gmd-19-1121-2026" target="_blank" rel="noopener">GMD 2026</a> · More apps at <a href="https://ginamarano.com/web-applications/">ginamarano.com</a></p>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const cv = $('cv'), ctx = cv.getContext('2d');
+const app = $('app');
+let W = 0, H = 0, DPR = 1;
+
+/* ---------------------------------------------------------------- settings */
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DROUGHT = {
+  2003: [0.85, '2003 · Heatwave summer across Europe'],
+  2015: [0.72, '2015 · Hot, dry summer'],
+  2018: [1.00, '2018 · Extreme drought: beech crowns turn brown'],
+  2019: [0.82, '2019 · Second dry year in a row'],
+  2020: [0.78, '2020 · Third dry year: spruce dies in the Harz'],
+  2022: [0.92, '2022 · Record heat']
+};
+const WET = { 2002: 0.08, 2007: 0.15, 2016: 0.2, 2021: 0.06 };
+const opts = { species: 'beech', soil: 'deep' };
+const START = 2010;
+let best = null;
+try { best = JSON.parse(localStorage.getItem('eds-best') || 'null'); } catch (e) { best = null; }
+
+/* ---------------------------------------------------------------- state */
+let S = null;          // game state
+let mode = 'intro';    // intro | play | dying | over
+let last = 0;
+
+function climateFor(y) {
+  if (DROUGHT[y]) return { h: DROUGHT[y][0], label: DROUGHT[y][1], drought: true };
+  if (WET[y] != null) return { h: WET[y], label: y === 2021 ? '2021 · Wet summer: time to recover' : null, drought: false };
+  if (y >= 2023) {
+    const p = Math.min(0.95, 0.5 + 0.08 * (y - 2023));
+    if (Math.random() < p) {
+      const h = 0.85 + 0.025 * (y - 2023) + Math.random() * 0.3;
+      return { h, label: y + (h > 1 ? ' · Drought and scorching dry air' : ' · Drought (future climate)'), drought: true };
+    }
+  }
+  return { h: 0.18 + Math.random() * 0.17, label: null, drought: false };
+}
+
+function newGame() {
+  const cap = opts.soil === 'deep' ? 140 : 90;
+  S = {
+    year: START, month: 3, mt: 0, cap, water: cap * 0.95,
+    vig: 100, P: 0, dryMonths: 0, incited: false, dryYears: 0,
+    incYears: [], beetlesIn: 0, squashed: 0,
+    clim: climateFor(START), cloudT: 0.6, beetleT: 3,
+    clouds: [], beetles: [], drops: [], leaves: [], floats: [], splats: [],
+    dieT: 0, shake: 0
+  };
+  bannerFor({ label: 'Spring ' + START + ' · Keep me alive!', drought: false }, START);
+}
+
+/* ---------------------------------------------------------------- geometry */
+let G = {};
+let hills = [], pebbles = [], blobs = [];
+function resize() {
+  const r = app.getBoundingClientRect();
+  DPR = Math.min(window.devicePixelRatio || 1, 2.5);
+  W = r.width; H = r.height;
+  cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  const gY = H * 0.66;
+  const R = Math.min(W * 0.3, H * 0.15);
+  G = { gY, tx: W * 0.5, cy: gY - H * 0.3, R, trunkTop: gY - H * 0.15, trunkW: Math.max(18, R * 0.22) };
+  // background hills
+  hills = [0, 1].map(k => {
+    const pts = []; let y = 0.5;
+    for (let i = 0; i <= 24; i++) { y += (Math.sin(i * 1.7 + k * 3) * 0.5 + Math.sin(i * 0.6 + k) * 0.5) * 0.12; pts.push(Math.max(0, Math.min(1, y))); }
+    return pts;
+  });
+  pebbles = Array.from({ length: 70 }, () => [Math.random(), Math.random(), 1.5 + Math.random() * 3]);
+  // crown blobs (beech), sorted so thinning removes the outer ones first
+  blobs = [];
+  for (let i = 0; i < 26; i++) {
+    const a = Math.random() * Math.PI * 2, rr = Math.sqrt(Math.random()) * 0.78;
+    blobs.push({ x: Math.cos(a) * rr, y: Math.sin(a) * rr * 0.8 - 0.05, r: 0.28 + Math.random() * 0.16, d: rr, s: Math.random() });
+  }
+  blobs.sort((a, b) => a.d - b.d);
+}
+
+/* ---------------------------------------------------------------- helpers */
+const lerp = (a, b, t) => a + (b - a) * t;
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+function mix(c1, c2, t) { return [0, 1, 2].map(i => Math.round(lerp(c1[i], c2[i], t))); }
+function rgb(c, a = 1) { return `rgba(${c[0]},${c[1]},${c[2]},${a})`; }
+function leafColor(v) {
+  const st = [[0, [128, 84, 52]], [0.3, [204, 104, 46]], [0.55, [226, 170, 52]], [0.75, [130, 168, 66]], [1, [63, 154, 85]]];
+  for (let i = 1; i < st.length; i++) if (v <= st[i][0]) return mix(st[i - 1][1], st[i][1], (v - st[i - 1][0]) / (st[i][0] - st[i - 1][0]));
+  return st[st.length - 1][1];
+}
+const vmax = () => 100 - 9 * Math.floor(S.P);
+const rew = () => S.water / S.cap;
+const growing = () => S.month >= 3 && S.month <= 9;
+function speed() { return Math.max(0.5, 1 - 0.015 * (S.year - 2000)); }
+function buzz(ms) { try { navigator.vibrate && navigator.vibrate(ms); } catch (e) {} }
+
+/* ---------------------------------------------------------------- UI text */
+let bannerTimer = 0, toastTimer = 0;
+function bannerFor(clim, y) {
+  const b = $('banner');
+  if (!clim.label) { b.classList.remove('show'); return; }
+  b.textContent = clim.label; b.classList.toggle('drought', clim.drought); b.classList.add('show');
+  bannerTimer = 2.6;
+}
+function toast(txt, color) {
+  const t = $('toast'); t.textContent = txt; t.style.color = color; t.style.textShadow = '0 2px 0 rgba(255,255,255,.75)';
+  t.classList.add('show'); toastTimer = 1.3;
+}
+function floatText(x, y, txt, color) { S.floats.push({ x, y, txt, color, t: 1.2 }); }
+
+function hud() {
+  $('yr').textContent = S.year;
+  $('mo').textContent = MONTHS[S.month];
+  const v = clamp(S.vig, 0, 100);
+  const bar = $('vig');
+  bar.style.width = v + '%';
+  bar.style.background = v > 60 ? 'var(--leaf)' : v > 30 ? 'var(--amber)' : 'var(--flame)';
+  $('vmax').style.left = 'calc(' + vmax() + '% - 2px)';
+  const pipBox = $('pips');
+  if (pipBox.children.length !== 6) { pipBox.innerHTML = ''; for (let i = 0; i < 6; i++) pipBox.appendChild(document.createElement('span')); }
+  [...pipBox.children].forEach((p, i) => { p.className = i < Math.floor(S.P) ? (S.P >= 4 ? 'on hot' : 'on') : ''; });
+  $('sq').textContent = S.squashed; $('cin').textContent = S.beetlesIn;
+}
+
+/* ---------------------------------------------------------------- update */
+function monthLen() { return (growing() ? 0.45 + 0.5 * Math.min(1, S.clim.h) : 0.15) * speed(); }   // calm years fast-forward
+
+function endOfMonth() {
+  if (growing()) {
+    if (rew() < 0.32) {
+      S.dryMonths++;
+      if (S.dryMonths >= 3 && !S.incited) {
+        S.incited = true; S.incYears.push(S.year);
+        const hit = 15 * (1 + 0.3 * S.P);
+        S.vig -= hit; S.shake = 0.45; buzz(80);
+        toast('Inciting drought! −' + Math.round(hit), '#E2552E');
+      }
+    }
+    if (S.month === 9) {           // end of the growing season
+      if (S.dryMonths >= 2) {
+        S.P = Math.min(6, S.P + 1); S.dryYears++;
+        setTimeout(() => mode === 'play' && toast('Drought memory +1', '#B47A00'), 650);
+      } else if (S.dryMonths === 0 && S.clim.h < 0.3) {
+        S.P = Math.max(0, S.P - 0.5);
+      }
+    }
+  } else {
+    S.water = Math.min(S.cap, S.water + S.cap * 0.15);   // winter recharge
+  }
+  S.month++;
+  if (S.month > 11) {
+    S.month = 0; S.year++; S.dryMonths = 0; S.incited = false;
+    S.clim = climateFor(S.year); bannerFor(S.clim, S.year);
+  }
+}
+
+function spawnCloud() {
+  const big = 0.8 + Math.random() * 0.5;
+  S.clouds.push({ x: W + 70 * big, y: H * (0.13 + Math.random() * 0.12), s: big,
+    vx: -(W * (0.16 + Math.random() * 0.1)), mm: 18 + Math.random() * 10, rain: 0, done: false, nat: false, fade: 1 });
+}
+function spawnBeetle() {
+  S.beetles.push({ y: G.gY - 4, side: Math.random() < 0.5 ? -1 : 1, ph: Math.random() * 6,
+    v: (G.gY - G.trunkTop) / (3.6 - 0.6 * S.clim.h) });
+}
+
+function update(dt) {
+  if (bannerTimer > 0 && (bannerTimer -= dt) <= 0) $('banner').classList.remove('show');
+  if (toastTimer > 0 && (toastTimer -= dt) <= 0) $('toast').classList.remove('show');
+  S.shake = Math.max(0, S.shake - dt);
+
+  if (mode === 'play') {
+    S.mt += dt;
+    if (S.mt >= monthLen()) { S.mt = 0; endOfMonth(); }
+    const h = S.clim.h;
+    if (growing()) {
+      const et = (15 + 40 * h) * Math.pow(Math.max(rew(), 0.01), 0.8) * dt;
+      S.water = Math.max(0, S.water - et);
+      if ((S.cloudT -= dt) <= 0) { spawnCloud(); S.cloudT = (1.0 + 1.6 * h) * (0.7 + 0.6 * Math.random()); }
+      if (h > 1) S.vig -= (h - 1) * 12 * dt;   // hot, dry air stresses even a watered tree
+      const r = rew();
+      if (r < 0.3) {
+        S.vig -= (2.5 + 4 * h) * (1 + 0.25 * S.P) * dt;
+        if (Math.random() < dt * 6) S.leaves.push(leafParticle());
+      } else if (r > 0.5) {
+        S.vig = Math.min(vmax(), S.vig + 3 * (1 - 0.1 * S.P) * dt);
+      }
+      const stressed = S.P >= 2 || S.vig < 55;
+      if (stressed && h >= 0.55) {
+        const sf = opts.species === 'spruce' ? 1 : 0.55;
+        if ((S.beetleT -= dt) <= 0) { spawnBeetle(); S.beetleT = (2.1 / sf) * (0.6 + 0.8 * Math.random()); }
+      }
+    }
+    if (S.vig > vmax()) S.vig = Math.max(vmax(), S.vig - 6 * dt);   // predisposition caps vigour
+    if (S.vig <= 0) { S.vig = 0; die(); }
+  }
+
+  // clouds
+  for (const c of S.clouds) {
+    c.x += c.vx * dt * (c.rain > 0 ? 0.35 : 1);
+    if (c.rain > 0) {
+      c.rain -= dt;
+      const add = (c.mm * (c.nat ? 0.5 : 1)) * dt / 1.1;
+      if (S && mode !== 'over') S.water = Math.min(S.cap, S.water + add);
+      for (let i = 0; i < 3; i++) S.drops.push({ x: c.x + (Math.random() - 0.5) * 80 * c.s, y: c.y + 18 * c.s, v: H * (0.9 + Math.random() * 0.4) });
+      if (c.rain <= 0) { c.done = true; }
+    }
+    if (!c.checked && c.x < G.tx && c.rain <= 0 && !c.done) {
+      c.checked = true;
+      if (mode === 'play' && Math.random() < 0.35 * Math.max(0, 1 - S.clim.h)) { c.nat = true; c.rain = 1.1; floatText(G.tx + 70, G.gY + 30, '+' + Math.round(c.mm * 0.5) + ' mm', '#2B83C6'); }
+    }
+    if (c.done) c.fade -= dt * 1.2;
+  }
+  S.clouds = S.clouds.filter(c => c.x > -150 && c.fade > 0);
+  // rain drops
+  for (const d of S.drops) d.y += d.v * dt;
+  S.drops = S.drops.filter(d => d.y < G.gY);
+  // beetles
+  for (const b of S.beetles) {
+    b.y -= b.v * dt; b.ph += dt * 14;
+    if (b.y <= G.trunkTop + 6) {
+      b.gone = true;
+      if (mode === 'play') {
+        S.beetlesIn++; S.vig -= 8; S.shake = 0.3; buzz(40);
+        toast('Beetles got in! −8', '#8A4B2C');
+      }
+    }
+  }
+  S.beetles = S.beetles.filter(b => !b.gone && !b.dead);
+  // particles
+  for (const l of S.leaves) { l.y += l.vy * dt; l.x += Math.sin(l.t += dt * 3) * 30 * dt; l.r += dt * 3; }
+  S.leaves = S.leaves.filter(l => l.y < G.gY + 4);
+  for (const f of S.floats) { f.t -= dt; f.y -= 26 * dt; }
+  S.floats = S.floats.filter(f => f.t > 0);
+  for (const sp of S.splats) sp.t -= dt;
+  S.splats = S.splats.filter(sp => sp.t > 0);
+
+  if (mode === 'dying') {
+    S.dieT += dt;
+    if (Math.random() < dt * 30) S.leaves.push(leafParticle());
+    if (S.dieT > 2.2) showOver();
+  }
+  hud();
+}
+
+function leafParticle() {
+  const a = Math.random() * Math.PI * 2;
+  return { x: G.tx + Math.cos(a) * G.R * 0.8, y: G.cy + Math.sin(a) * G.R * 0.6, vy: 50 + Math.random() * 50, t: Math.random() * 6, r: Math.random() * 6,
+           c: leafColor(Math.max(0, S.vig / 100) * 0.5) };
+}
+
+/* ---------------------------------------------------------------- input */
+cv.addEventListener('pointerdown', e => {
+  if (mode !== 'play') return;
+  const r = cv.getBoundingClientRect();
+  const x = e.clientX - r.left, y = e.clientY - r.top;
+  // beetles first (small targets)
+  let hitB = null, bd = 1e9;
+  for (const b of S.beetles) {
+    const bx = G.tx + b.side * G.trunkW * 0.25 + Math.sin(b.ph) * 2;
+    const d2 = (bx - x) ** 2 + (b.y - y) ** 2;
+    if (d2 < bd) { bd = d2; hitB = b; }
+  }
+  if (hitB && bd < 34 * 34) {
+    hitB.dead = true; S.squashed++; S.splats.push({ x: G.tx + hitB.side * G.trunkW * 0.25, y: hitB.y, t: 0.6 }); buzz(25);
+    floatText(x, y - 10, 'squashed!', '#8A4B2C');
+    return;
+  }
+  for (const c of S.clouds) {
+    if (c.rain > 0 || c.done) continue;
+    if (Math.abs(x - c.x) < 70 * c.s && Math.abs(y - c.y) < 40 * c.s) {
+      c.rain = 1.1; buzz(15);
+      floatText(G.tx + 70, G.gY + 30, '+' + Math.round(c.mm) + ' mm', '#2B83C6');
+      return;
+    }
+  }
+});
+
+/* ---------------------------------------------------------------- render */
+function draw() {
+  const h = S ? S.clim.h : 0.25;
+  const dry = S ? clamp(1 - rew(), 0, 1) : 0;
+  const heat = clamp(h * (S && growing() ? 1 : 0.4) * (0.5 + 0.5 * dry), 0, 1);
+  ctx.save();
+  if (S && S.shake > 0) ctx.translate((Math.random() - 0.5) * 8 * S.shake, (Math.random() - 0.5) * 8 * S.shake);
+  // sky
+  const g = ctx.createLinearGradient(0, 0, 0, G.gY);
+  g.addColorStop(0, rgb(mix([46, 112, 178], [92, 138, 170], heat)));
+  g.addColorStop(1, rgb(mix([196, 226, 244], [246, 214, 160], heat)));
+  ctx.fillStyle = g; ctx.fillRect(-10, -10, W + 20, G.gY + 10);
+  // sun
+  const sx = W * 0.83, sy = H * 0.15, sr = 26 + 26 * h;
+  const sg = ctx.createRadialGradient(sx, sy, sr * 0.6, sx, sy, sr * 3.2);
+  sg.addColorStop(0, 'rgba(255,236,170,.75)'); sg.addColorStop(1, 'rgba(255,236,170,0)');
+  ctx.fillStyle = sg; ctx.fillRect(sx - sr * 3.3, sy - sr * 3.3, sr * 6.6, sr * 6.6);
+  ctx.fillStyle = rgb(mix([255, 240, 190], [255, 205, 80], h)); ctx.beginPath(); ctx.arc(sx, sy, sr, 0, 7); ctx.fill();
+  // hills
+  hills.forEach((pts, k) => {
+    ctx.fillStyle = k ? rgb(mix([110, 150, 120], [160, 150, 100], heat)) : rgb(mix([160, 190, 205], [200, 190, 170], heat));
+    ctx.beginPath(); ctx.moveTo(0, G.gY);
+    pts.forEach((p, i) => ctx.lineTo(W * i / (pts.length - 1), G.gY - H * (k ? 0.05 : 0.09) - p * H * (k ? 0.04 : 0.07)));
+    ctx.lineTo(W, G.gY); ctx.fill();
+  });
+  // ground + soil
+  ctx.fillStyle = rgb(mix([88, 150, 82], [190, 170, 90], heat)); ctx.fillRect(0, G.gY - 4, W, 10);
+  ctx.fillStyle = '#A8805C'; ctx.fillRect(0, G.gY + 6, W, H - G.gY);
+  ctx.fillStyle = '#8F6A48';
+  pebbles.forEach(p => { ctx.beginPath(); ctx.arc(p[0] * W, G.gY + 10 + p[1] * (H - G.gY - 14), p[2], 0, 7); ctx.fill(); });
+  drawBucket();
+  if (S) { drawTree(); drawBeetles(); }
+  // clouds and rain
+  if (S) {
+    ctx.strokeStyle = 'rgba(43,131,198,.85)'; ctx.lineWidth = 2;
+    S.drops.forEach(d => { ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - 2, d.y + 9); ctx.stroke(); });
+    S.clouds.forEach(drawCloud);
+    S.leaves.forEach(l => { ctx.save(); ctx.translate(l.x, l.y); ctx.rotate(l.r); ctx.fillStyle = rgb(l.c); ctx.beginPath(); ctx.ellipse(0, 0, 6, 3.4, 0, 0, 7); ctx.fill(); ctx.restore(); });
+    S.splats.forEach(sp => { ctx.fillStyle = `rgba(110,60,30,${sp.t})`; ctx.beginPath(); ctx.arc(sp.x, sp.y, 12 * (1.4 - sp.t), 0, 7); ctx.fill(); });
+    ctx.textAlign = 'center'; ctx.font = '800 22px "Barlow Condensed", "Arial Narrow", sans-serif';
+    S.floats.forEach(f => { ctx.globalAlpha = clamp(f.t, 0, 1); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.strokeText(f.txt, f.x, f.y); ctx.fillStyle = f.color; ctx.fillText(f.txt, f.x, f.y); });
+    ctx.globalAlpha = 1;
+  }
+  // heat haze
+  if (heat > 0.3) { ctx.fillStyle = `rgba(255,170,60,${(heat - 0.3) * 0.18})`; ctx.fillRect(0, 0, W, G.gY); }
+  ctx.restore();
+}
+
+function drawBucket() {
+  const cap = S ? S.cap : (opts.soil === 'deep' ? 140 : 90);
+  const depth = (H - G.gY) * (cap >= 140 ? 0.72 : 0.46);
+  const bw = Math.min(W * 0.42, 220), top = G.gY + 22, bot = top + depth, x0 = G.tx - bw / 2, x1 = G.tx + bw / 2, ins = bw * 0.1;
+  const r = S ? rew() : 0.95;
+  ctx.lineJoin = 'round';
+  ctx.fillStyle = '#F4EFE6'; ctx.strokeStyle = '#3B2F25'; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(x0, top); ctx.lineTo(x1, top); ctx.lineTo(x1 - ins, bot); ctx.lineTo(x0 + ins, bot); ctx.closePath(); ctx.fill();
+  const wy = bot - (bot - top) * r;
+  const f = (wy - top) / (bot - top);
+  ctx.fillStyle = r < 0.32 ? '#7FB2D6' : '#2B83C6';
+  ctx.beginPath(); ctx.moveTo(x0 + ins * f, wy); ctx.lineTo(x1 - ins * f, wy); ctx.lineTo(x1 - ins, bot); ctx.lineTo(x0 + ins, bot); ctx.closePath(); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(x0, top); ctx.lineTo(x1, top); ctx.lineTo(x1 - ins, bot); ctx.lineTo(x0 + ins, bot); ctx.closePath(); ctx.stroke();
+  // threshold mark (dry below 32 %)
+  const ty = bot - (bot - top) * 0.32, tf = (ty - top) / (bot - top);
+  ctx.setLineDash([6, 5]); ctx.strokeStyle = '#E2552E'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(x0 + ins * tf - 8, ty); ctx.lineTo(x1 - ins * tf + 8, ty); ctx.stroke(); ctx.setLineDash([]);
+  // roots
+  ctx.strokeStyle = '#6E4F35'; ctx.lineWidth = 3;
+  [[-0.2, -0.5], [0, 0.1], [0.2, 0.5]].forEach(([a, b]) => { ctx.beginPath(); ctx.moveTo(G.tx + a * G.trunkW * 2, G.gY + 4); ctx.quadraticCurveTo(G.tx + b * bw * 0.4, top + 10, G.tx + b * bw * 0.45, top + depth * 0.35); ctx.stroke(); });
+  // labels
+  ctx.textAlign = 'left'; ctx.fillStyle = '#fff';
+  ctx.font = '700 15px "Barlow Condensed", "Arial Narrow", sans-serif';
+  ctx.fillText('SOIL WATER', 14, G.gY + 30);
+  ctx.font = '800 24px "Barlow Condensed", "Arial Narrow", sans-serif';
+  ctx.fillText(Math.round(r * cap) + '/' + cap + ' mm', 14, G.gY + 56);
+  ctx.font = '600 13px "Barlow", sans-serif'; ctx.fillStyle = 'rgba(255,255,255,.9)';
+  ctx.fillText('red line = dry', 14, G.gY + 76);
+}
+
+function drawTree() {
+  const v = clamp(S.vig / 100, 0, 1);
+  const col = leafColor(mode === 'dying' ? Math.max(0, 0.25 - S.dieT * 0.15) : v);
+  const tilt = mode === 'dying' ? Math.min(0.5, S.dieT * S.dieT * 0.12) : 0;
+  ctx.save(); ctx.translate(G.tx, G.gY); ctx.rotate(tilt); ctx.translate(-G.tx, -G.gY);
+  // trunk
+  const tw = G.trunkW;
+  ctx.fillStyle = '#7A553A';
+  ctx.beginPath(); ctx.moveTo(G.tx - tw * 0.6, G.gY + 2); ctx.lineTo(G.tx + tw * 0.6, G.gY + 2); ctx.lineTo(G.tx + tw * 0.35, G.cy); ctx.lineTo(G.tx - tw * 0.35, G.cy); ctx.fill();
+  // dead twigs show predisposition
+  ctx.strokeStyle = '#7A553A'; ctx.lineCap = 'round';
+  const twigs = Math.floor(S.P);
+  for (let i = 0; i < twigs; i++) {
+    const a = -Math.PI / 2 + (i % 2 ? 1 : -1) * (0.5 + i * 0.18);
+    ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(G.tx, G.cy);
+    ctx.lineTo(G.tx + Math.cos(a) * G.R * 1.12, G.cy + Math.sin(a) * G.R * 0.95); ctx.stroke();
+  }
+  const fullness = (vmax() / 100) * (mode === 'dying' ? Math.max(0.15, 1 - S.dieT * 0.4) : 1);
+  if (opts.species === 'beech') {
+    const n = Math.max(4, Math.round(blobs.length * (0.35 + 0.65 * fullness)));
+    for (let i = 0; i < n; i++) {
+      const b = blobs[i];
+      const shade = mix(col, [20, 40, 30], 0.12 * b.s);
+      ctx.fillStyle = rgb(shade);
+      ctx.beginPath(); ctx.arc(G.tx + b.x * G.R, G.cy + b.y * G.R, b.r * G.R, 0, 7); ctx.fill();
+    }
+  } else {
+    const tiers = 7, hgt = G.R * 2.7, base = G.cy + G.R * 0.75;
+    const keep = Math.max(2, Math.round(tiers * (0.4 + 0.6 * fullness)));
+    for (let i = 0; i < tiers; i++) {
+      const y = base - i * hgt / tiers, w = G.R * 0.95 * (1 - i / (tiers + 1));
+      const c = i < keep ? col : [150, 120, 95];
+      ctx.fillStyle = rgb(mix(c, [20, 40, 30], 0.1 * (i % 2)));
+      ctx.beginPath(); ctx.moveTo(G.tx - w, y); ctx.lineTo(G.tx + w, y); ctx.lineTo(G.tx, y - hgt / tiers * 1.9); ctx.fill();
+    }
+  }
+  ctx.restore();
+}
+
+function drawBeetles() {
+  for (const b of S.beetles) {
+    const x = G.tx + b.side * G.trunkW * 0.25 + Math.sin(b.ph) * 2, y = b.y;
+    ctx.save(); ctx.translate(x, y);
+    // target ring so small bugs are easy to see
+    ctx.strokeStyle = 'rgba(255,255,255,.75)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(0, 0, 15, 0, 7); ctx.stroke();
+    ctx.strokeStyle = '#2A1A10'; ctx.lineWidth = 2;
+    for (const s of [-1, 1]) for (const k of [-4, 0, 4]) { ctx.beginPath(); ctx.moveTo(s * 4, k); ctx.lineTo(s * 10, k + Math.sin(b.ph + k) * 3); ctx.stroke(); }
+    ctx.fillStyle = '#4A2C1A'; ctx.beginPath(); ctx.ellipse(0, 2, 6, 9, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = '#2A1A10'; ctx.beginPath(); ctx.arc(0, -8, 4.5, 0, 7); ctx.fill();
+    ctx.restore();
+  }
+}
+
+function drawCloud(c) {
+  ctx.save(); ctx.globalAlpha = clamp(c.fade, 0, 1);
+  const dark = c.rain > 0 ? [96, 112, 132] : [250, 252, 255];
+  ctx.fillStyle = rgb(dark);
+  ctx.shadowColor = 'rgba(20,35,30,.18)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 3;
+  const s = c.s;
+  [[-34, 6, 22], [-12, -8, 28], [14, -4, 26], [34, 8, 20], [0, 10, 24]].forEach(([dx, dy, r]) => { ctx.beginPath(); ctx.arc(c.x + dx * s, c.y + dy * s, r * s, 0, 7); ctx.fill(); });
+  ctx.shadowColor = 'transparent';
+  if (!c.done && c.rain <= 0 && mode === 'play') {   // tap hint
+    ctx.fillStyle = 'rgba(43,131,198,.9)'; ctx.font = '800 15px "Barlow Condensed", "Arial Narrow", sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('TAP', c.x, c.y + 6 * s);
+  }
+  ctx.restore();
+}
+
+/* ---------------------------------------------------------------- flow */
+function die() {
+  if (mode !== 'play') return;
+  mode = 'dying'; S.dieT = 0; S.deathMonth = S.month; S.deathYear = S.year;
+  buzz([60, 40, 120]);
+  toast('Your tree is dying…', '#E2552E');
+}
+
+function season(m) { return m <= 4 ? 'spring' : m <= 7 ? 'summer' : 'autumn'; }
+
+function showOver() {
+  mode = 'over';
+  $('hud').hidden = true;
+  const sp = opts.species === 'beech' ? 'beech' : 'spruce';
+  const lived = S.deathYear - START + S.deathMonth / 12;
+  $('ov-k').textContent = 'Your ' + sp + ' died in';
+  $('ov-year').textContent = S.deathYear;
+  $('ov-sub').textContent = season(S.deathMonth) + ' · lived ' + Math.floor(lived) + ' years · ' + (opts.soil === 'deep' ? 'deep' : 'shallow') + ' soil';
+  $('ov-p').innerHTML = S.dryYears > 0 ? `<b>Predisposed</b> by ${S.dryYears} dry year${S.dryYears > 1 ? 's' : ''} of drought memory.` : '<b>Predisposed</b>: hardly at all. Well watered!';
+  const inc = S.incYears.length ? S.incYears[S.incYears.length - 1] : null;
+  $('ov-i').innerHTML = inc ? `<b>Incited</b> by the ${inc} drought${S.incYears.length > 1 ? ` (and ${S.incYears.length - 1} earlier one${S.incYears.length > 2 ? 's' : ''})` : ''}.` : '<b>Incited</b> by a long spell of empty soil.';
+  const pest = sp === 'spruce' ? 'bark beetles' : 'beech splendour beetles';
+  $('ov-c').innerHTML = S.beetlesIn ? `<b>Finished</b> by ${S.beetlesIn} ${pest} that got past you (you squashed ${S.squashed}).` : `<b>Contributing</b> pests: none got in (you squashed ${S.squashed}).`;
+  const score = Math.round(lived * 10) / 10;
+  let msg = '';
+  if (!best || score > best.score) { best = { score, year: S.deathYear, sp, soil: opts.soil }; msg = 'New personal best!'; try { localStorage.setItem('eds-best', JSON.stringify(best)); } catch (e) {} }
+  else msg = 'Your best: ' + best.year + ' (' + best.sp + ', ' + best.soil + ' soil)';
+  $('best2').textContent = msg;
+  $('over').hidden = false;
+  $('again').focus({ preventScroll: true });
+}
+
+function start() {
+  $('intro').hidden = true; $('over').hidden = true; $('hud').hidden = false;
+  newGame(); mode = 'play'; hud();
+}
+
+function pick(groupIds, key, val) {
+  groupIds.forEach(id => $(id).setAttribute('aria-pressed', String($(id).dataset.v === val)));
+  opts[key] = val;
+}
+$('sp-beech').dataset.v = 'beech'; $('sp-spruce').dataset.v = 'spruce';
+$('so-deep').dataset.v = 'deep'; $('so-shallow').dataset.v = 'shallow';
+['sp-beech', 'sp-spruce'].forEach(id => $(id).addEventListener('click', () => pick(['sp-beech', 'sp-spruce'], 'species', $(id).dataset.v)));
+['so-deep', 'so-shallow'].forEach(id => $(id).addEventListener('click', () => pick(['so-deep', 'so-shallow'], 'soil', $(id).dataset.v)));
+$('start').addEventListener('click', start);
+$('again').addEventListener('click', start);
+$('change').addEventListener('click', () => { $('over').hidden = true; $('intro').hidden = false; mode = 'intro'; idleScene(); });
+if (best) { $('best1').hidden = false; $('best1').textContent = 'Your best so far: ' + best.year + ' (' + best.sp + ', ' + best.soil + ' soil)'; }
+
+function idleScene() { newGame(); S.water = S.cap * 0.9; }
+
+function loop(t) {
+  const dt = Math.min(0.05, (t - last) / 1000 || 0); last = t;
+  if (!document.hidden && S) update(mode === 'intro' ? 0 : dt);
+  draw();
+  requestAnimationFrame(loop);
+}
+
+function boot() {
+  resize(); idleScene();
+  window.addEventListener('resize', resize);
+  document.addEventListener('visibilitychange', () => { last = performance.now(); });
+  requestAnimationFrame(loop);
+}
+boot();
+})();
+</script>
+
+</body>
+</html>
