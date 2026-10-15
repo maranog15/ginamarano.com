@@ -141,7 +141,7 @@ My teaching sits on that seam. I start from traditional silviculture — stand s
 
 Academic life can be hard, and it often pushes us to our limits and into dark places. Alongside teaching, I regularly support students and early-career researchers who are struggling — with the pressure of academic life, but also with bullying, difficult supervision, harassment and racism. I listen, offer advice and practical support, and help people find the offices and authorities that can help them further.
 
-To do this well, I trained, and am still training, as part of a coaching group of the [Fix the Leaky Pipeline (FLP)](https://foster-lead-promote.ch/) programme at ETH Zurich, with coach Dr. Lille Springall.
+To do this well, I trained, and am still training, as part of a coaching group of the [Foster. Lead. Promote. (FLP)](https://foster-lead-promote.ch/) programme at ETH Zurich, with coach Dr. Lille Springall. In these conversations I follow the principles of Nonviolent Communication, as described by Marshall B. Rosenberg in [*Nonviolent Communication: A Language of Life*](https://nonviolentcommunication.com/product/nvc/).
 
 If you are experiencing problems too, please know that you are not alone. I also know some of these struggles from the inside. I grew up in the suburbs of a big city, in a family with no academic background, where nobody had been to high school, let alone university. I worked to pay for my studies, and I became a mother at the end of my PhD. As a young scientist and a parent, I can relate, understand, and offer free support and guidance.
 
