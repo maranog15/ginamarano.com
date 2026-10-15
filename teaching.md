@@ -136,6 +136,22 @@ My teaching sits on that seam. I start from traditional silviculture — stand s
   </div>
 </div>
 
+## Student support & mental health
+{: #support data-toc="Student support"}
+
+Academic life can be hard in ways that never appear on a syllabus. Alongside teaching, I regularly support students and early-career researchers who are struggling — with the pressure of academic life, but also with bullying, difficult supervision, harassment and racism. I listen, offer advice and practical support, and help people find the offices and authorities that can help them further.
+
+To do this well, I trained as part of a coaching group of the [Fix the Leaky Pipeline (FLP)](https://foster-lead-promote.ch/) programme at ETH Zurich, with coach Dr. Lille Springall.
+
+I also know some of these struggles from the inside. I grew up in the suburbs of a big city, in a family with no academic background, where nobody had been to high school, let alone university. I worked to pay for my studies, and I became a mother at the end of my PhD. As a young scientist and a parent, I can relate — and I understand.
+
+<div class="callout">
+  <p><strong>Parents Network at WSL.</strong> I founded the Parents Network at WSL, which I now run
+  together with Dr. Christian Temperli (Swiss National Forest Inventory). We meet once a month.
+  If you are a parent at WSL, come and join our activities:
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuy6OFem4dDoIWAvLpkdZF3S_UuUStf3ljgyr4_cPz6B6S_A/viewform" target="_blank" rel="noopener">sign up here</a>.</p>
+</div>
+
 ## Theses supervised
 
 <div class="cv-block">
