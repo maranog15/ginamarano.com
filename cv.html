@@ -3,14 +3,15 @@ layout: page
 title: Curriculum Vitae
 nav: CV
 permalink: /cv/
-lede: "Forest ecologist with a strong background in process-based modelling. Postdoctoral researcher at WSL and lecturer at ETH Zurich."
-description: "Academic CV of Gina Marano — forest ecologist and modeller at WSL, Switzerland."
+lede: "Forester and forest ecologist with a strong background in process-based modelling and silviculture. Postdoctoral researcher at WSL, associate scientist at CNR-ISAFOM and lecturer at ETH Zurich."
+description: "Academic CV of Gina Marano — forester, forest ecologist and modeller at WSL, Switzerland."
 ---
 
 <ul class="linkrow" style="margin-bottom:2.5rem">
   {% if site.cv-pdf %}{% unless site.cv-pdf == "" %}
   <li><a href="{{ site.cv-pdf | relative_url }}">Download PDF</a></li>
   {% endunless %}{% endif %}
+  <li><a href="#silviculture">Silviculture &amp; forestry</a></li>
   <li><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
   <li><a href="mailto:{{ site.email-work }}">{{ site.email-work }}</a></li>
   <li><a href="{{ site.orcid }}" target="_blank" rel="noopener">ORCID</a></li>
@@ -24,8 +25,9 @@ description: "Academic CV of Gina Marano — forest ecologist and modeller at WS
 <p>Assessing the impacts of abiotic disturbances — mainly drought and climate extremes — and
 biotic disturbances — pests and management — on the dynamics of temperate forests, with a focus
 on growth and mortality processes at the stand and individual-tree scale. My work combines
-process-based and empirical forest models with long-term observational datasets, and pays close
-attention to the practical value of model output for forest practitioners.</p>
+process-based and empirical forest models with long-term observational datasets and field
+silviculture, and is aimed at management scenarios and decision support that forest
+practitioners can actually use.</p>
 
 <h2 id="positions">Positions</h2>
 
@@ -36,9 +38,11 @@ attention to the practical value of model output for forest practitioners.</p>
       <p class="entry__title">Postdoctoral Researcher <span class="tag">100%</span></p>
       <p class="entry__where">Swiss Federal Institute for Forest, Snow and Landscape Research WSL, Birmensdorf, Switzerland</p>
       <p class="entry__note">Research Unit Forest Resources and Management — Resource Analysis group,
-      Swiss National Forest Inventory. Project <strong>ReForMASSIMO</strong>: improving the modelling
-      of Swiss forest development under relevant climate scenarios with the MASSIMO model.
-      Supervisors: Dr. Golo Stadelmann, Dr. Esther Thürig.</p>
+      Swiss National Forest Inventory. Scientific lead for the further development of the MASSIMO
+      management simulator in the project <strong>ReForMASSIMO</strong>: climate-sensitive growth,
+      mortality and regeneration, a new disturbance module, and tests of when silvicultural
+      interventions remain effective under climate change. Supervisors: Dr. Golo Stadelmann,
+      Dr. Esther Thürig.</p>
     </div>
   </div>
 
@@ -52,12 +56,24 @@ attention to the practical value of model output for forest practitioners.</p>
   </div>
 
   <div class="entry">
+    <div class="entry__when">2018 — present</div>
+    <div class="entry__what">
+      <p class="entry__title">Associate Scientist</p>
+      <p class="entry__where">Forest Modelling Lab, CNR-ISAFOM, National Research Council of Italy</p>
+      <p class="entry__note">External research associate. Development of the management module and
+      of the drought-mortality representation in the process-based model 3D-CMCC-FEM; applications
+      on forest management, carbon sequestration and resilience.
+      <a href="https://www.forest-modelling-lab.com/gina-marano" target="_blank" rel="noopener">Profile</a></p>
+    </div>
+  </div>
+
+  <div class="entry">
     <div class="entry__when">2022 — 2023</div>
     <div class="entry__what">
       <p class="entry__title">Teaching Assistant &amp; Research Support <span class="tag">20%</span></p>
       <p class="entry__where">ETH Zurich, D&#8209;USYS, Switzerland</p>
       <p class="entry__note">Master courses <em>Quantitative Vegetation Dynamics</em> and
-      <em>Forest Mountain Ecology and Management</em>.</p>
+      <em>Gebirgswaldökologie und Management</em>.</p>
     </div>
   </div>
 
@@ -66,9 +82,10 @@ attention to the practical value of model output for forest practitioners.</p>
     <div class="entry__what">
       <p class="entry__title">Research Fellow <span class="tag">100%</span></p>
       <p class="entry__where">University of Naples Federico II, Italy</p>
-      <p class="entry__note">Horizon 2020 project <strong>LANDSUPPORT</strong>. Group leader of the
-      forestry group in WP3 (high-performance models); development of geospatial decision support
-      tools for forest practice in the Campania Region at NUTS-2 and NUTS-3 level.</p>
+      <p class="entry__note">Horizon 2020 project <strong>LANDSUPPORT</strong>. Task group leader
+      for the forestry tools in WP3: conception, development and deployment of regional and local
+      forestry decision-support tools for the Campania Region (NUTS-2 and NUTS-3 level), with user
+      training and stakeholder round tables.</p>
     </div>
   </div>
 </div>
@@ -81,13 +98,14 @@ attention to the practical value of model output for forest practitioners.</p>
     <div class="entry__what">
       <p class="entry__title">PhD in Forest Ecology</p>
       <p class="entry__where">ETH Zurich, Switzerland</p>
-      <p class="entry__note">Thesis: <em>Unraveling the death spiral — drivers and ecological
-      responses of temperate forests to drought stress.</em> Supervisor: Prof. Dr. Harald Bugmann,
-      Stand and Landscape Dynamics group. Funded by SNSF grant 188882,
-      <em>Embracing structural uncertainty in models of forest dynamics</em>.</p>
-      <p class="entry__note">Developed and validated process-based forest gap models
-      (ForClim v4.1–4.2) against long-term observational datasets; released open-source model code
-      and reproducible workflows.</p>
+      <p class="entry__note">Thesis: <em>Unraveling the death spiral — a process-based assessment of
+      the drivers and ecological responses of temperate forests to drought stress.</em> Supervisor:
+      Prof. Dr. Harald Bugmann, Stand and Landscape Dynamics group. Funded by SNSF grant 188882.
+      <a href="https://doi.org/10.3929/ethz-c-000790347" target="_blank" rel="noopener">doi</a></p>
+      <p class="entry__note">Developed and validated new versions of the forest gap model ForClim
+      (v4.1–4.2) integrating predisposing, inciting and contributing stress factors; reproduced
+      drought-induced mortality in Switzerland and Germany; released open-source model code and
+      reproducible workflows.</p>
     </div>
   </div>
 
@@ -96,8 +114,18 @@ attention to the practical value of model output for forest practitioners.</p>
     <div class="entry__what">
       <p class="entry__title">MSc Forest Sciences <span class="tag">110/110 cum laude</span></p>
       <p class="entry__where">University of Padua, Italy</p>
-      <p class="entry__note">Thesis: <em>Physico-chemical characterization of woody by-products
-      for energetic purposes.</em></p>
+      <p class="entry__note">Curriculum Forestry and Silviculture. Thesis: <em>Physico-chemical
+      characterization of woody by-products for energetic purposes.</em></p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry__when">2014 — 2015</div>
+    <div class="entry__what">
+      <p class="entry__title">Additional university coursework</p>
+      <p class="entry__where">University of Naples Federico II, Italy</p>
+      <p class="entry__note">GIS and Remote Sensing (30/30); Nature Conservation and Management of
+      Protected Areas (30/30 cum laude). 18 ECTS, recognised toward the MSc in Padua.</p>
     </div>
   </div>
 
@@ -120,25 +148,183 @@ attention to the practical value of model output for forest practitioners.</p>
   </div>
 </div>
 
+<h2 id="silviculture">Silviculture &amp; forestry practice</h2>
+
+<blockquote>
+  <p>I regard models as instruments that aid silvicultural decisions by extending field experience
+  beyond the range of past conditions: they make the long-term consequences of interventions
+  visible, while expert knowledge tests their plausibility.</p>
+</blockquote>
+
+<h3>Decision support for practitioners</h3>
+
+<div class="cv-block">
+  <div class="entry">
+    <div class="entry__when">2025 — present</div>
+    <div class="entry__what">
+      <p class="entry__title">MASSIMO — Swiss National Forest Inventory</p>
+      <p class="entry__where">WSL &middot; for the Federal Office for the Environment (BAFU)</p>
+      <p class="entry__note">Climate-sensitive management scenario simulator used for national
+      forest development projections and for evaluating management strategies mandated by federal
+      policy. Improving growth, regeneration and mortality, the bark beetle disturbance module and
+      the management modules.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2025</div>
+    <div class="entry__what">
+      <p class="entry__title">ForClim-App</p>
+      <p class="entry__where">ETH Zurich &middot; PI Dr. Ulrike Hiltner</p>
+      <p class="entry__note">Provided the newest ForClim version with refined drought-induced
+      mortality, integrated into the ForClim web application for projections of stand
+      development.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2023 — 2024</div>
+    <div class="entry__what">
+      <p class="entry__title">ForClim-Marteloscope</p>
+      <p class="entry__where">ETH Zurich &middot; teaching and practitioner training</p>
+      <p class="entry__note">Marteloscope tree-marking exercises linked to ForClim: silvicultural
+      selection decisions are translated into model rules and confronted with projected stand
+      dynamics — growth, mortality, regeneration, timber, carbon and risk.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2023</div>
+    <div class="entry__what">
+      <p class="entry__title">Schweizerische Gebirgswaldpflegegruppe (GWG)</p>
+      <p class="entry__where">39th Arbeitstagung, Ilanz</p>
+      <p class="entry__note">Showed the concrete use of ForClim as decision support for Swiss
+      mountain protection forests, in exchange with the mountain-silviculture practitioner group.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2018 — 2022</div>
+    <div class="entry__what">
+      <p class="entry__title">LANDSUPPORT S-DSS</p>
+      <p class="entry__where">University of Naples Federico II &middot; H2020, GA 774234</p>
+      <p class="entry__note">Task group leader for the forestry tools: regional and local forestry
+      tools and a machine-learning forest simulator supporting silvicultural planning in Italy and
+      Slovenia. <a href="https://www.landsupport.eu/dss-platform/technical-docs/" target="_blank" rel="noopener">Tool factsheets</a></p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2014 — 2016</div>
+    <div class="entry__what">
+      <p class="entry__title">SoilConsWeb</p>
+      <p class="entry__where">LIFE+ &middot; CRISP, University of Naples Federico II</p>
+      <p class="entry__note">Forest plot surveys for a web-based spatial decision-support system for
+      soil and landscape conservation, forerunner of LANDSUPPORT (Camposauro Regional Park).</p>
+    </div>
+  </div>
+</div>
+
+<h3>Field training &amp; professional forestry</h3>
+
+<div class="cv-block">
+  <div class="entry">
+    <div class="entry__when">2019 — 2020</div>
+    <div class="entry__what">
+      <p class="entry__title">Forest-management planning support</p>
+      <p class="entry__where">Forestry Directorate, Campania Region, Italy &middot; supervisor Alberto Mattia</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2019</div>
+    <div class="entry__what">
+      <p class="entry__title">Forestry intern — forest-management planning</p>
+      <p class="entry__where">Matese Regional Park, Campania &middot; supervisor Pio Ciliberti</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2015</div>
+    <div class="entry__what">
+      <p class="entry__title">Forestry intern — tree marking and silvicultural planning</p>
+      <p class="entry__where">Campania &middot; supervisor Alessandro Simeone</p>
+      <p class="entry__note">Field surveys, cartography, tree marking and planning of
+      interventions in high-forest and coppice stands of <em>Castanea sativa</em> and
+      <em>Corylus avellana</em>.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2013 — 2014</div>
+    <div class="entry__what">
+      <p class="entry__title">Forestry intern — site and stand assessment</p>
+      <p class="entry__where">Camposauro Regional Park, Telesina Valley &middot; supervisor Simone Valentini</p>
+      <p class="entry__note">Dominant-height measurements and soil surveys in high-forest and
+      coppice stands.</p>
+    </div>
+  </div>
+</div>
+
+<div class="defs">
+  <div class="def">
+    <div class="def__key">Forest operations</div>
+    <div class="def__val">Chainsaw operations and safety, with final exam (CESFAM Paluzza, 2017);
+    cable crane (2017), forest road network planning (2016) and forest operations (2016) courses,
+    BFW Forstliche Ausbildungsstätte Ossiach, Austria.</div>
+  </div>
+  <div class="def">
+    <div class="def__key">Ungulates &amp; browsing</div>
+    <div class="def__val">Monitoring and biometric censuses of fallow deer, wild boar and red deer
+    (Castelporziano, 2018), of the endemic Mesola red deer (2015–2017) and of red deer on the
+    Cansiglio and Asiago plateaus (2017), University of Padua.</div>
+  </div>
+  <div class="def">
+    <div class="def__key">Large carnivores</div>
+    <div class="def__val">Marsican brown bear monitoring in its potential expansion area
+    (Salviamo l'Orso, 2013–2014); wolf-damage recognition and mitigation course (Cilento National
+    Park, 2014).</div>
+  </div>
+</div>
+
+<h3>Science–practice transfer</h3>
+
+<ul>
+  <li>Public forest walks (<em>Waldumgänge</em>) communicating silviculture and forest change,
+  with the district forester of Benken ZH (2021 — present).</li>
+  <li>Bridge between operational forestry and research in Benken ZH: forest planning course with
+  the ETH Forest Resources Management group, silvicultural field testing of ForestStudio, and
+  selection of managed stands for a dendroecological study of drought in mixed stands.</li>
+  <li>Contribution to the proposal of the COST Action on forest decision support (2020), later
+  funded as CA22141 <em>DSS4ES</em>.</li>
+  <li>Articles for practitioners in German and Italian professional journals
+  (<em>Schweizerische Zeitschrift für Forstwesen</em>, <em>Sherwood</em>,
+  <em>Tecniko &amp; Pratiko</em>, SISEF).</li>
+</ul>
+
 <h2 id="grants">Grants &amp; projects</h2>
 
 <div class="cv-block">
   <div class="entry">
-    <div class="entry__when">2025 — 2028</div>
+    <div class="entry__when">2026 — present</div>
+    <div class="entry__what">
+      <p class="entry__title">Swiss–New Zealand forest collaboration</p>
+      <p class="entry__where">Auckland University of Technology &middot; seed funding NZD 5,000 &middot; Role: co-developer</p>
+      <p class="entry__note">Exchange of forest data, models and adaptation approaches, testing which
+      silvicultural principles from Central Europe are transferable and which remain
+      context-dependent. Host: Prof. Sebastian Leuzinger.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry__when">2025 — 2027</div>
     <div class="entry__what">
       <p class="entry__title">ReForMASSIMO</p>
-      <p class="entry__where">WSL &middot; Federal Office for the Environment (BAFU) &middot; CHF 500,000 &middot; Role: non-PI (postdoc)</p>
-      <p class="entry__note">Improving the modelling of forest development in Switzerland for
-      relevant climate scenarios with the MASSIMO model.</p>
+      <p class="entry__where">WSL &middot; Federal Office for the Environment (BAFU) &middot; CHF 500,000 &middot; Role: postdoc, scientific lead for MASSIMO development</p>
+      <p class="entry__note">Climate-sensitive metamodel for growth, mortality and regeneration in all
+      NFI plots, a new disturbance module, and the plausibility of management strategies under
+      climate change.</p>
     </div>
   </div>
 
   <div class="entry">
     <div class="entry__when">2021 — 2025</div>
     <div class="entry__what">
-      <p class="entry__title">Embracing structural uncertainty in models of forest dynamics</p>
-      <p class="entry__where">ETH Zurich &middot; Swiss National Science Foundation &middot; CHF 959,036 &middot; Role: non-PI (PhD)</p>
-      <p class="entry__note">SNSF Division I–III, grant 188882.</p>
+      <p class="entry__title">FORMULATE-DROUGHT — Embracing structural uncertainty in models of forest dynamics</p>
+      <p class="entry__where">ETH Zurich &middot; Swiss National Science Foundation &middot; CHF 959,036 &middot; Role: doctoral researcher and subproject contact</p>
+      <p class="entry__note">SNSF grant 188882 (PI Prof. Harald Bugmann).</p>
     </div>
   </div>
 
@@ -146,10 +332,20 @@ attention to the practical value of model output for forest practitioners.</p>
     <div class="entry__when">2018 — 2022</div>
     <div class="entry__what">
       <p class="entry__title">LANDSUPPORT</p>
-      <p class="entry__where">University of Naples Federico II &middot; European Union (H2020, 774234) &middot; € 6,999,771 total, € 1,351,583 institutional &middot; Role: non-PI (research fellow)</p>
-      <p class="entry__note">Development of an integrated web-based land decision support system for
-      the implementation of agricultural and environmental policies. Geospatial infrastructure tools
-      supporting sustainable forest management at EU, national and regional scale.</p>
+      <p class="entry__where">University of Naples Federico II &middot; European Union (H2020, 774234) &middot; € 6,999,771 total, € 1,351,583 institutional &middot; Role: research fellow</p>
+      <p class="entry__note">Integrated web-based land decision support system linking silvicultural
+      options with land-use objectives, stakeholder needs and multi-scale public decision-making.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry__when">2016 — 2017</div>
+    <div class="entry__what">
+      <p class="entry__title">PRO.PRO.FOR. — Promozione della Professione Forestale</p>
+      <p class="entry__where">University of Padua, Dept. TESAF &middot; € 5,850 award &middot; Role: project lead and funding recipient</p>
+      <p class="entry__note">Designed and organised an open seminar series and a field summer school
+      on silvicultural planning, forest operations, environmental assessment, monitoring and
+      precision forestry.</p>
     </div>
   </div>
 </div>
@@ -161,38 +357,45 @@ attention to the practical value of model output for forest practitioners.</p>
     <div class="entry__when">2026 — present</div>
     <div class="entry__what">
       <p class="entry__title">Quantitative Vegetation Dynamics — MSc</p>
-      <p class="entry__where">ETH Zurich, D&#8209;USYS &middot; University Lecturer (33%)</p>
+      <p class="entry__where">ETH Zurich, D&#8209;USYS &middot; Lecturer</p>
     </div>
   </div>
   <div class="entry">
-    <div class="entry__when">2021 — 2024</div>
+    <div class="entry__when">2022 — 2023</div>
     <div class="entry__what">
-      <p class="entry__title">Quantitative Vegetation Dynamics — MSc</p>
-      <p class="entry__where">ETH Zurich, D&#8209;USYS &middot; Teaching assistant (20%)</p>
-      <p class="entry__note">Supporting students in setting up simulations with the forest gap
-      model ForClim.</p>
+      <p class="entry__title">Forest gap modelling laboratory, Quantitative Vegetation Dynamics — MSc</p>
+      <p class="entry__where">ETH Zurich, D&#8209;USYS &middot; Teaching assistant</p>
     </div>
   </div>
   <div class="entry">
-    <div class="entry__when">2023 — 2024</div>
+    <div class="entry__when">2022 — 2023</div>
     <div class="entry__what">
-      <p class="entry__title">Forest Mountain Ecology and Management — MSc</p>
-      <p class="entry__where">ETH Zurich, D&#8209;USYS &middot; Teaching assistant (20%)</p>
-      <p class="entry__note">Supporting research assistants with ForClim simulations.</p>
+      <p class="entry__title">Gebirgswaldökologie und Management — MSc</p>
+      <p class="entry__where">ETH Zurich, D&#8209;USYS &middot; Laboratory and teaching material, with Prof. Harald Bugmann</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry__when">2018 — 2019</div>
+    <div class="entry__what">
+      <p class="entry__title">Best practices in forest operations to minimise erosion and soil compaction</p>
+      <p class="entry__where">Guest lecture, BSc <em>Forest Pedology</em>, University of Naples Federico II</p>
+      <p class="entry__note">Also a crash course in R for geospatial analyses for the MSc
+      <em>Geography and Soil Evaluation</em>.</p>
     </div>
   </div>
 </div>
 
-<p style="margin-top:1.5rem"><a href="{{ '/teaching/' | relative_url }}">Full teaching record and
+<p style="margin-top:1.5rem"><a href="{{ '/teaching/' | relative_url }}">Teaching approach and
 supervised theses &rarr;</a></p>
 
 <h2 id="service">Editorial &amp; review service</h2>
 
 <div class="defs">
   <div class="def">
-    <div class="def__key">Editorial boards</div>
+    <div class="def__key">Editorial roles</div>
     <div class="def__val">
-      Editorial board member, <em>Current Climate Change Reports</em> (Springer).<br>
+      Associate Editor, <a href="https://besjournals.onlinelibrary.wiley.com/journal/13652745" target="_blank" rel="noopener"><em>Journal of Ecology</em></a> (British Ecological Society).<br>
+      Editorial board member, <a href="https://link.springer.com/journal/40641" target="_blank" rel="noopener"><em>Current Climate Change Reports</em></a> (Springer).<br>
       Guest Assistant Editor, <em>Forests</em> — Special Issue
       <a href="https://www.mdpi.com/journal/forests/special_issues/Modeling_Forest_Response_to_Climate_Change" target="_blank" rel="noopener">Modeling Forest Response to Climate Change</a>.
     </div>
@@ -231,9 +434,35 @@ supervised theses &rarr;</a></p>
     Ecology — Communication Officer of the Modelling Working Group.</div>
   </div>
   <div class="def">
-    <div class="def__key">2018 — present</div>
-    <div class="def__val"><strong>CNR Forest Modelling Lab</strong> — external research associate.
-    <a href="https://www.forest-modelling-lab.com/gina-marano" target="_blank" rel="noopener">Profile</a></div>
+    <div class="def__key">Member</div>
+    <div class="def__val">Schweizerischer Forstverein &middot; SwissForestLab &middot; Gesellschaft
+    für Ökologie (GfÖ) &middot; Ecological Society of America</div>
+  </div>
+  <div class="def">
+    <div class="def__key">Student years</div>
+    <div class="def__val">President, Forestry Student Association (AUSF / IFSA local committee),
+    University of Padua (2017–2018); Vice-President, University of Naples Federico II
+    (2012–2014); student representative in the academic councils of both forestry
+    programmes.</div>
+  </div>
+</div>
+
+<h2 id="awards">Prizes &amp; awards</h2>
+
+<div class="defs">
+  <div class="def">
+    <div class="def__key">2023</div>
+    <div class="def__val">Best Oral Presentation Award, SwissForestLab Science Day</div>
+  </div>
+  <div class="def">
+    <div class="def__key">2020</div>
+    <div class="def__val">Best Poster Award — Umberto Bagnaresi Prize, SISEF Congress of
+    Silviculture</div>
+  </div>
+  <div class="def">
+    <div class="def__key">2011</div>
+    <div class="def__val">Scholarship and selection as Best Student — Alfieri del Lavoro, President
+    of the Italian Republic</div>
   </div>
 </div>
 
@@ -246,28 +475,30 @@ supervised theses &rarr;</a></p>
   <tbody>
     <tr>
       <td><strong>MASSIMO</strong></td>
-      <td>Empirical, stochastic, individual-tree simulator of the Swiss NFI. Enhancing climate
-      sensitivity via a climate meta-model; hybridisation with process-based approaches.</td>
+      <td>Empirical, stochastic, individual-tree management simulator of the Swiss NFI. Enhancing
+      the climate sensitivity of regeneration, growth and mortality through a climate meta-model;
+      hybridisation with process-based approaches (ForClim).</td>
       <td>Java</td>
     </tr>
     <tr>
       <td><strong>ForClim v4.1–4.2</strong></td>
-      <td>Gap model of forest dynamics. Main developer of versions 4.1 and 4.2, extending
-      sensitivity to climate extremes. Ongoing collaborations with ETH Zurich, University of
-      Auckland and Universidad Santiago de Chile.</td>
+      <td>Gap model of stand dynamics. Main developer of versions 4.1 and 4.2, with enhanced
+      sensitivity to climate extremes and drought-induced mortality. Ongoing development and
+      applications with ETH Zurich, University of Auckland and Universidad de Santiago de Chile.</td>
       <td>C#, Python</td>
     </tr>
     <tr>
       <td><strong>3D-CMCC-FEM</strong></td>
-      <td>Process-based forest ecosystem model. Contributor as external research associate at the
-      CNR Forest Modelling Lab; transferring the drought-mortality framework and linking
-      predisposition to non-structural carbohydrate dynamics.</td>
+      <td>Process-based forest ecosystem model. Developer of the management module; applied in
+      publications on management, carbon sequestration and resilience; transferring the
+      drought-mortality framework.</td>
       <td>C</td>
     </tr>
     <tr>
-      <td><strong>Forest Studio</strong></td>
-      <td>Forest growth and management model. Scientific support to development at the ETH Zurich
-      Forest Resources Management professorship.</td>
+      <td><strong>ForestStudio</strong></td>
+      <td>Forest management model. Scientific support to development at the ETH Zurich Forest
+      Resources Management professorship, including its silvicultural application with
+      practitioners.</td>
       <td>Rust</td>
     </tr>
   </tbody>
@@ -286,7 +517,7 @@ supervised theses &rarr;</a></p>
   <div class="entry">
     <div class="entry__when">2024</div>
     <div class="entry__what">
-      <p class="entry__title">Predisposing and inciting stress factors leading to drought-induced mortality <span class="tag">Invited</span></p>
+      <p class="entry__title">Predisposing and inciting stress factors leading to drought-induced mortality</p>
       <p class="entry__where">IUFRO World Congress, session T5.22, Stockholm, June 2024</p>
     </div>
   </div>
@@ -303,8 +534,8 @@ supervised theses &rarr;</a></p>
       <p class="entry__title">From dynamic forest models to decision support for forest transformation — how can synergies be achieved? <span class="tag">Session chair</span></p>
       <p class="entry__where">European Conference of Ecological Modelling, Leipzig, September 2023</p>
       <p class="entry__note">Also presented <em>Predisposing and inciting stress factors leading to
-      beech mortality in Switzerland</em> and a poster on the use of dynamic forest models as
-      decision support in Swiss mountain protection forests.</p>
+      beech mortality in Switzerland</em> and a poster on dynamic forest models as decision support
+      in Swiss mountain protection forests.</p>
     </div>
   </div>
   <div class="entry">
@@ -325,7 +556,7 @@ supervised theses &rarr;</a></p>
     <div class="entry__when">2021</div>
     <div class="entry__what">
       <p class="entry__title">How to integrate dynamic forest models in geospatial decision support systems</p>
-      <p class="entry__where">LANDSUPPORT H2020 Round Table on Forestry &middot;
+      <p class="entry__where">LANDSUPPORT H2020 Round Table on Forestry, 25 October 2021 &middot;
       <a href="https://www.youtube.com/watch?v=ooumC05SNto" target="_blank" rel="noopener">video</a></p>
     </div>
   </div>
@@ -340,11 +571,19 @@ supervised theses &rarr;</a></p>
   </div>
   <div class="def">
     <div class="def__key">Scripting &amp; stats</div>
-    <div class="def__val">R (advanced); SAS, SPSS, Statgraphics Centurion, MATLAB</div>
+    <div class="def__val">R; SAS, SPSS, Statgraphics Centurion, MATLAB</div>
   </div>
   <div class="def">
     <div class="def__key">Modelling environments</div>
     <div class="def__val">RStudio, NetLogo, Jupyter Notebook, Google Colab</div>
+  </div>
+  <div class="def">
+    <div class="def__key">Stand visualisation</div>
+    <div class="def__val">SVS — Stand Visualization System</div>
+  </div>
+  <div class="def">
+    <div class="def__key">Geospatial &amp; CAD</div>
+    <div class="def__val">QGIS, ArcGIS, Google Earth Engine; forest road network design</div>
   </div>
   <div class="def">
     <div class="def__key">Development</div>
@@ -355,10 +594,6 @@ supervised theses &rarr;</a></p>
     <div class="def__val">ETH Euler cluster (SLURM, MPI/OpenMP)</div>
   </div>
   <div class="def">
-    <div class="def__key">Geospatial</div>
-    <div class="def__val">QGIS, ArcGIS, Google Earth Engine</div>
-  </div>
-  <div class="def">
     <div class="def__key">Databases</div>
     <div class="def__val">PostgreSQL, Microsoft Access</div>
   </div>
@@ -367,8 +602,9 @@ supervised theses &rarr;</a></p>
     <div class="def__val">LaTeX, Quarto, Markdown, Shiny</div>
   </div>
   <div class="def">
-    <div class="def__key">Systems</div>
-    <div class="def__val">Windows, Linux</div>
+    <div class="def__key">Certificates</div>
+    <div class="def__val">GIS, specialised level (AICA, 2015); ITsec4RI cybersecurity (ETH
+    domain, 2026); data protection (British Ecological Society, 2026)</div>
   </div>
 </div>
 
@@ -377,7 +613,8 @@ supervised theses &rarr;</a></p>
 <div class="defs">
   <div class="def">
     <div class="def__key">Languages</div>
-    <div class="def__val">Italian (native), English (C1), German (B2), Spanish (B1), French (A2)</div>
+    <div class="def__val">Italian (native), English (C1), German (B2), Spanish (B2), French (A2),
+    Norwegian (A1)</div>
   </div>
   <div class="def">
     <div class="def__key">Based in</div>

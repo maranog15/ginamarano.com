@@ -1,13 +1,13 @@
 ---
-title: Web applications for science and society
+title: Playable science
 layout: page
 nav: Web apps
 permalink: /web-applications/
-lede: "Small interactive tools that turn forest research into something you can try yourself: in the browser, on any phone, with nothing to install."
+lede: "Can you keep a beech tree alive through the summer of 2018? Games and tools built from my research, so you can try the science before you read the paper."
 description: "Web applications by Gina Marano that make forest-ecology research playable and explorable, for conference audiences, students and anyone curious about how forests respond to drought."
 ---
 
-Science is easier to talk about when people can play with it. These web applications translate results from my research into short interactive experiences: for poster sessions and lectures, for students, and for anyone who wonders why some trees survive a drought and others do not.
+Science is easier to communicate when people can play with it. These web applications translate results from my research into short interactive experiences: for poster sessions and lectures, for students, and for anyone who wonders why some trees survive a drought and others do not.
 
 <section class="app" aria-labelledby="app-death-spiral">
   <a class="app__art" href="{{ '/apps/escape-the-death-spiral/' | relative_url }}" aria-label="Play Escape the Death Spiral">

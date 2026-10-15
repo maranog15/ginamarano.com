@@ -63,7 +63,7 @@ The other half of this is delivery. Foresters carry the ambitious — and often 
 
 <div class="cv-block">
   <div class="entry">
-    <div class="entry__when">2025 — 2028</div>
+    <div class="entry__when">2025 — 2027</div>
     <div class="entry__what">
       <p class="entry__title">ReForMASSIMO</p>
       <p class="entry__where">WSL &middot; funded by the Federal Office for the Environment (BAFU)</p>
