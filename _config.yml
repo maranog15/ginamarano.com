@@ -33,7 +33,7 @@ twitter: ginmarano
 instagram: juno_tanne
 
 # CV file served from /assets/docs/ (leave blank to hide the download button)
-cv-pdf: /assets/docs/CV_GinaMarano_2026.pdf
+cv-pdf: ""   # Download PDF button on the CV page is off; to re-enable set to /assets/docs/CV_GinaMarano_2026.pdf
 
 # ---------------------------------------------------------------------------
 #  build
