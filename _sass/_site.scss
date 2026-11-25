@@ -804,59 +804,69 @@ th {
 
 /* ---------- collaboration map ---------- */
 .cmap { margin: 1.6rem 0 2.5rem; }
-.cmap__maps {
+.cmap__grid {
   display: grid;
-  grid-template-columns: minmax(0, 720fr) minmax(0, 300fr);
-  gap: 0.9rem;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 1.4rem 1.2rem;
 }
-.cmap__panel { position: relative; min-width: 0; }
-.cmap__svg { display: block; width: 100%; height: auto; }
-.cmap__panel-title {
-  margin: 0.4rem 0 0;
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  color: var(--muted);
+.cmap__card { min-width: 0; }
+.cmap__svg {
+  display: block; width: 100%; height: auto;
+  background: var(--tint);
+  border-radius: 8px;
 }
-.cmap__sphere { fill: var(--tint); }
-.cmap__grat { fill: none; stroke: var(--rule); stroke-width: 0.5; }
-.cmap__land { fill: #d5ddd9; stroke: var(--bg); stroke-width: 0.4; stroke-linejoin: round; }
-.cmap__eu { fill: #a9c6b8; stroke: var(--bg); stroke-width: 0.4; stroke-linejoin: round; }
-.cmap__partner { fill: var(--accent); stroke: var(--bg); stroke-width: 0.6; stroke-linejoin: round; }
-.cmap__arc { fill: none; stroke: var(--accent-dk); stroke-width: 1.2; stroke-dasharray: 3 3; opacity: 0.75; }
-.cmap__dot { fill: var(--ink); stroke: var(--bg); stroke-width: 2; }
-.cmap__label {
+.cmap__name {
+  margin: 0.55rem 0 0;
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 0.95rem;
   font-weight: 600;
-  fill: var(--ink);
-  paint-order: stroke;
-  stroke: var(--bg);
-  stroke-width: 3px;
-  stroke-linejoin: round;
+  color: var(--ink);
 }
-.cmap__label--area { font-weight: 500; fill: var(--accent-dk); }
+.cmap__who {
+  margin: 0.1rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.cmap__ctx { fill: #e3e8e5; }
+.cmap__base { fill: #cfd8d3; }
+.cmap__border { fill: none; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: round; opacity: 0.85; }
+.cmap__outline { fill: none; stroke: var(--ink); stroke-width: 1; stroke-linejoin: round; }
+.cmap__partner { fill: var(--accent); stroke: var(--bg); stroke-width: 0.5; stroke-linejoin: round; }
+.cmap__partner--globe { stroke: none; }
+.cmap__globe { fill: var(--bg); }
+.cmap__globe-ring { fill: none; stroke: var(--accent-dk); stroke-width: 1.2; }
+.cmap__grat { fill: none; stroke: var(--rule); stroke-width: 0.5; }
+.cmap__forest-legend { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.cmap__legend-title {
+  margin: 0 0 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
 .cmap__list {
   list-style: none;
-  margin: 1.1rem 0 0;
+  margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 0.55rem 1.5rem;
+  gap: 0.35rem 1.5rem;
   font-family: var(--sans);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   color: var(--ink-soft);
 }
 .cmap__list li { margin: 0; padding-left: 1.35rem; position: relative; }
-.cmap__list strong { display: block; color: var(--ink); }
 .cmap__key {
   position: absolute; left: 0; top: 0.3em;
   width: 0.8rem; height: 0.8rem; border-radius: 3px;
 }
-.cmap__key--partner { background: var(--accent); }
-.cmap__key--eu { background: #a9c6b8; }
-.cmap__key--world { border: 2px solid var(--accent); border-radius: 50%; box-sizing: border-box; }
-@media (max-width: 40rem) {
-  .cmap__maps { grid-template-columns: 1fr; }
-  .cmap__panel--europe { max-width: 20rem; }
+.cmap__credit {
+  margin: 0.9rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--muted);
 }
