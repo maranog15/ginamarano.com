@@ -23,34 +23,38 @@ Implemented in the forest gap model ForClim (developed and maintained by the For
 
 ## Dynamic vegetation models
 
-I work across the spectrum from empirical to fully process-based models, which I find far more informative than defending one school against another.
+I work across the spectrum from empirical to fully process-based models, to whose development I contribute.
 
 <div class="cards">
   <div class="card">
     <h3>ForClim v4.1–4.2</h3>
     <p>Stand-scale forest gap model, developed and maintained by the Forest Ecology group at
     ETH Zurich. I contributed to its further development with versions 4.1 and 4.2, extending its
-    sensitivity to climate extremes. Open source, C# and Python. Ongoing applications with ETH
-    Zurich, Auckland University of Technology and Universidad de Chile.</p>
+    sensitivity to climate extremes. Open source. Ongoing applications with ETH
+    Zurich, Auckland University of Technology and Universidad de Chile.
+    <a href="https://ites-fe.ethz.ch/openaccess/products/forclim" target="_blank" rel="noopener">Model webpage &rarr;</a></p>
   </div>
   <div class="card">
     <h3>MASSIMO</h3>
     <p>Empirical, stochastic, individual-tree simulator of the Swiss National Forest
     Inventory, developed and maintained at WSL. I contribute to its further development by
     enhancing its climate sensitivity through a climate meta-model and
-    hybridising it with process-based approaches. Java.</p>
+    hybridising it with process-based approaches.
+    <a href="https://www.lfi.ch/en/about-the-nfi/modules/development-of-forest-and-wood-resources" target="_blank" rel="noopener">Model webpage &rarr;</a></p>
   </div>
   <div class="card">
     <h3>3D-CMCC-FEM</h3>
     <p>Process-based forest ecosystem model, developed and maintained by the Forest Modelling
     Lab of CNR-ISAFOM (Italy). I have contributed to its further development since 2018 as
     external research associate. Currently implementing a carbon-aware mortality
-    formulation in C.</p>
+    formulation.
+    <a href="https://www.forest-modelling-lab.com/the-3d-cmcc-model" target="_blank" rel="noopener">Model webpage &rarr;</a></p>
   </div>
   <div class="card">
     <h3>Forest Studio</h3>
     <p>Forest growth and management model developed at the ETH Zurich Forest Resources
-    Management professorship, where I provide scientific support to its further development. Rust.</p>
+    Management professorship, where I provide scientific support to its further development.
+    <a href="https://foreststudio.ethz.ch/" target="_blank" rel="noopener">Model webpage &rarr;</a></p>
   </div>
 </div>
 
