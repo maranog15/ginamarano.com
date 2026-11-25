@@ -75,14 +75,14 @@ The other half of this is delivery. Foresters carry the ambitious — and often 
       <p class="entry__title">ReForMASSIMO</p>
       <p class="entry__where">WSL &middot; funded by the Federal Office for the Environment (BAFU)</p>
       <p class="entry__note">Improving the modelling of Swiss forest development under relevant
-      climate scenarios with the MASSIMO model. Project supervisors: Dr. Golo Stadelmann,
+      climate scenarios with the MASSIMO model. PIs: Dr. Golo Stadelmann,
       Dr. Esther Thürig. Scientific officers: Dr. Nele Rogier, Dr. Andreas Schellenberger.</p>
     </div>
   </div>
   <div class="entry">
     <div class="entry__when">2018 — ongoing</div>
     <div class="entry__what">
-      <p class="entry__title">Drought mortality in 3D-CMCC-FEM</p>
+      <p class="entry__title">Drought mortality in 3D-CMCC-FEM (collaboration)</p>
       <p class="entry__where">CNR Forest Modelling Lab, Italy</p>
       <p class="entry__note">Reformulating and implementing the mortality equations, parameterising
       and initialising the model, and evaluating simulations for beech- and spruce-dominated
