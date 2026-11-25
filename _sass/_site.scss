@@ -801,3 +801,62 @@ th {
   h2 { page-break-after: avoid; }
   .entry, .pub { page-break-inside: avoid; }
 }
+
+/* ---------- collaboration map ---------- */
+.cmap { margin: 1.6rem 0 2.5rem; }
+.cmap__maps {
+  display: grid;
+  grid-template-columns: minmax(0, 720fr) minmax(0, 300fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+.cmap__panel { position: relative; min-width: 0; }
+.cmap__svg { display: block; width: 100%; height: auto; }
+.cmap__panel-title {
+  margin: 0.4rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.cmap__sphere { fill: var(--tint); }
+.cmap__grat { fill: none; stroke: var(--rule); stroke-width: 0.5; }
+.cmap__land { fill: #d5ddd9; stroke: var(--bg); stroke-width: 0.4; stroke-linejoin: round; }
+.cmap__eu { fill: #a9c6b8; stroke: var(--bg); stroke-width: 0.4; stroke-linejoin: round; }
+.cmap__partner { fill: var(--accent); stroke: var(--bg); stroke-width: 0.6; stroke-linejoin: round; }
+.cmap__arc { fill: none; stroke: var(--accent-dk); stroke-width: 1.2; stroke-dasharray: 3 3; opacity: 0.75; }
+.cmap__dot { fill: var(--ink); stroke: var(--bg); stroke-width: 2; }
+.cmap__label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.cmap__label--area { font-weight: 500; fill: var(--accent-dk); }
+.cmap__list {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.55rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.cmap__list li { margin: 0; padding-left: 1.35rem; position: relative; }
+.cmap__list strong { display: block; color: var(--ink); }
+.cmap__key {
+  position: absolute; left: 0; top: 0.3em;
+  width: 0.8rem; height: 0.8rem; border-radius: 3px;
+}
+.cmap__key--partner { background: var(--accent); }
+.cmap__key--eu { background: #a9c6b8; }
+.cmap__key--world { border: 2px solid var(--accent); border-radius: 50%; box-sizing: border-box; }
+@media (max-width: 40rem) {
+  .cmap__maps { grid-template-columns: 1fr; }
+  .cmap__panel--europe { max-width: 20rem; }
+}

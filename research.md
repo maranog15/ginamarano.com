@@ -19,7 +19,7 @@ The core of my doctoral and current work is a parsimonious representation of dro
 - **inciting stress** — the acute drought event that pushes a weakened tree over the edge;
 - **contributing factors** — biotic agents such as bark beetles, and management, that finish the process.
 
-Implemented in the forest gap model ForClim, this framework has been tested against recent mortality patterns of European beech, Norway spruce and Scots pine in Switzerland and Germany. I am now transferring it to the process-based [3D-CMCC-FEM](https://www.forest-modelling-lab.com/the-3d-cmcc-model), where long-term predisposition can be linked directly to non-structural carbohydrate dynamics rather than relying on slow growth as a proxy for declining vitality. A key open question is how chronic carbon limitation interacts with acute drought stress and hydraulic constraints.
+Implemented in the forest gap model ForClim (developed and maintained by the Forest Ecology group at ETH Zurich), this framework has been tested against recent mortality patterns of European beech, Norway spruce and Scots pine in Switzerland and Germany. I am now transferring it to the process-based [3D-CMCC-FEM](https://www.forest-modelling-lab.com/the-3d-cmcc-model) of the CNR-ISAFOM Forest Modelling Lab, where long-term predisposition can be linked directly to non-structural carbohydrate dynamics rather than relying on slow growth as a proxy for declining vitality. A key open question is how chronic carbon limitation interacts with acute drought stress and hydraulic constraints.
 
 ## Dynamic vegetation models
 
@@ -28,26 +28,29 @@ I work across the spectrum from empirical to fully process-based models, which I
 <div class="cards">
   <div class="card">
     <h3>ForClim v4.1–4.2</h3>
-    <p>Stand-scale forest gap model. Main developer of versions 4.1 and 4.2, extending its
+    <p>Stand-scale forest gap model, developed and maintained by the Forest Ecology group at
+    ETH Zurich. I contributed to its further development with versions 4.1 and 4.2, extending its
     sensitivity to climate extremes. Open source, C# and Python. Ongoing applications with ETH
-    Zurich, the University of Auckland and Universidad Santiago de Chile.</p>
+    Zurich, Auckland University of Technology and Universidad de Chile.</p>
   </div>
   <div class="card">
     <h3>MASSIMO</h3>
-    <p>Empirical, stochastic, individual-tree simulator behind the Swiss National Forest
-    Inventory. I am enhancing its climate sensitivity through a climate meta-model and
+    <p>Empirical, stochastic, individual-tree simulator of the Swiss National Forest
+    Inventory, developed and maintained at WSL. I contribute to its further development by
+    enhancing its climate sensitivity through a climate meta-model and
     hybridising it with process-based approaches. Java.</p>
   </div>
   <div class="card">
     <h3>3D-CMCC-FEM</h3>
-    <p>Process-based forest ecosystem model. Contributor since 2018 as external research
-    associate at the CNR Forest Modelling Lab. Currently implementing a carbon-aware mortality
+    <p>Process-based forest ecosystem model, developed and maintained by the Forest Modelling
+    Lab of CNR-ISAFOM (Italy). I have contributed to its further development since 2018 as
+    external research associate. Currently implementing a carbon-aware mortality
     formulation in C.</p>
   </div>
   <div class="card">
     <h3>Forest Studio</h3>
     <p>Forest growth and management model developed at the ETH Zurich Forest Resources
-    Management professorship, where I provide scientific support. Rust.</p>
+    Management professorship, where I provide scientific support to its further development. Rust.</p>
   </div>
 </div>
 
