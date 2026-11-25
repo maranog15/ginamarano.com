@@ -54,7 +54,7 @@ My teaching sits on that seam. I start from traditional silviculture — stand s
   <div class="entry">
     <div class="entry__when">2026 — present</div>
     <div class="entry__what">
-      <p class="entry__title">Quantitative Vegetation Dynamics: Models from Tree to Globe <span class="tag">MSc</span></p>
+      <p class="entry__title"><a href="https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=203616&amp;semkez=2026W&amp;ansicht=LEHRVERANSTALTUNGEN&amp;lang=en" target="_blank" rel="noopener">Quantitative Vegetation Dynamics: Models from Tree to Globe</a> <span class="tag">MSc</span></p>
       <p class="entry__where">ETH Zurich, D&#8209;USYS &middot; Lecturer &middot; Autumn semester</p>
       <p class="entry__note">From single trees measured in forest inventories to stand competition,
       landscape disturbances and global vegetation — taught from the forester's side of the table:
